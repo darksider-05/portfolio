@@ -153,9 +153,54 @@ p{
 }
 
 .holder_type_1{
-    display: flex;
-    justify-content: center;
+    display: inline;
+    
 }
 
+@media (min-width: 1250px){
+    .holder_type_1{
+        display: flex;
+        justify-content: center;
+    }
+}
 
-  
+.spec_img{
+    width: 250px;
+    height: 175px;
+}
+.spec_img2{
+    width: 275px;
+    height: 175px;
+}
+
+@media (min-width:500px){
+    .spec_img{
+        width: 300px;
+        height: 200px;
+    }
+    .spec_img2{
+        width: 400px;
+        height: 200px;
+    }
+}
+
+@media (min-width:800px){
+    .spec_img{
+        width: 500px;
+        height: 350px;
+    }
+    .spec_img2{
+        width: 650px;
+        height: 350px;
+    }
+}
+@media (min-width:1250px){
+    .spec_img{
+        width: 300px;
+        height: 200px;
+    }
+    .spec_img2{
+        width: 400px;
+        height: 200px;
+    }
+}
