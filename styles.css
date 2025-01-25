@@ -1,4 +1,4 @@
-body {
+    body {
     background-color: #303030;
     margin: 0;
     padding: 0;
@@ -6,8 +6,8 @@ body {
 
 
 nav {
-    width: 100vw;
-    background-color: #505050;
+    width: 98vw;
+    background-color: #303030;
     height: 5vh;
     display: flex;
     justify-content: flex-start;
@@ -16,41 +16,36 @@ nav {
     position:sticky;
     top: 0px;
     border-bottom: 3px solid green;
+    border-radius: 15px;
+    left: 1%;
     
     
 }
 
 @media (min-width: 1024px) {
     nav {
-    background-color: #505050;
-    height: 10vh;
-    display: flex;
-    justify-content: flex-start;
-    margin: 0;
-    padding: 0;
-    position:sticky;
-    top: 0px;
-    border-bottom: 2px solid red;
-    
-    
+        height: 10vh;
+        border-bottom: 2px solid red;
 }}
 
 nav ul {
     display: flex;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 0 0 0 0;
     align-items: center;
 
 }
 
 nav li { 
+    background-color: #505050;
     height: 100%;
     display: flex;
-    justify-content: center; 
+    justify-content: flex; 
     align-items: center;    
     border-right: 2px solid black;
     border-left: 2px solid black;
+    border-radius: 15px;
 
 }
 
@@ -62,24 +57,17 @@ nav a {
     color: black;
     height: 100%;
     text-decoration: none;
-    display: block;
-    padding: 1 2vw 1px 2vw;
+    padding: 1px 2vw 1px 2vw;
     display: flex;
     justify-content: center; 
     align-items: center;
+    border-radius: 15px;
 }
 
 
 @media (min-width:485px){
     nav a {
-        color: black;
-        height: 100%;
-        text-decoration: none;
-        padding: 0 5vw 0px 5vw;
-        display: block;
-        display: flex;
-        justify-content: center; 
-        align-items: center;
+        padding: 0px 5vw 0px 5vw;
     }
     
 }
@@ -109,6 +97,7 @@ div{
     justify-content: center;
     margin: 10px;
     background-color: #707070;
+    border-radius: 20px
 }
 
 div h1 {
@@ -203,4 +192,31 @@ p{
         width: 400px;
         height: 200px;
     }
+}
+
+.con{
+    text-align: center;   
+}
+.title{
+    display: inline;
+    border: 2px solid greenyellow;
+    padding: 10px;
+    border-radius: 9999px;
+}
+
+@media (min-width:600px){
+.title{
+    border: 2px solid orange;
+    padding: 30px 10px 30px 10px;
+}}
+
+
+div ul{
+    border: 2px dotted bisque;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.main {
+    border: #11c09d solid 3px;
 }
