@@ -220,3 +220,9 @@ div ul{
 .main {
     border: #11c09d solid 3px;
 }
+
+@media (min-width:600px){
+    .main{
+        border: #cd0b0b solid 5px;
+    }
+}
