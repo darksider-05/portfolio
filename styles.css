@@ -75,6 +75,7 @@ nav a {
 
 nav a:hover {
     background-color: rgb(19, 169, 14);
+    transition: background-color 1s ;
 }
 
 @media (min-width:1024px) {
@@ -221,8 +222,8 @@ div ul{
     border: #11c09d solid 3px;
 }
 
-@media (min-width:600px){
+@media (min-width:1024px){
     .main{
-        border: #cd0b0b solid 5px;
+        border: rgb(155, 51, 80) solid 4px;
     }
 }
