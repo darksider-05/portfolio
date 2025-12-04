@@ -34,7 +34,7 @@ class _TCState extends State<TC> {
               bottomRight: Radius.circular(30),
             ),
           ),
-          width: vw * 0.8,
+          width: vw > 450 ? vw * 0.8 : vw,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [

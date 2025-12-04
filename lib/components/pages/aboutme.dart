@@ -25,7 +25,7 @@ class _WideState extends State<Aboutme> {
               children: [Textpart(), Imagecon()],
             )
           : Column(
-              spacing: min(vh, vw * 0.7) * 0.7 * 0.66,
+              spacing: min(vh, vw * 0.8) * 0.8 * 0.66,
               children: [
                 Column(
                   children: [
