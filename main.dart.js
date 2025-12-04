@@ -19323,7 +19323,7 @@ $izD:1}
 A.a22.prototype={
 $1(a){var s=A.bU().b
 s=s==null?null:s.canvasKitBaseUrl
-return(s==null?"https://www.gstatic.com/flutter-canvaskit/13e658725ddaa270601426d1485636157e38c34c/":s)+a},
+return(s==null?"https://www.gstatic.com/flutter-canvaskit/a5cb96369ef86c7e85abf5d662a1ca5d89775053/":s)+a},
 $S:116}
 A.zU.prototype={
 gp(a){var s=this.a
@@ -54401,8 +54401,8 @@ m===$&&A.b()
 q=m}m=A.cb(a)
 s=t.E
 if(r>600)s=A.BC(A.d([new A.tQ(o),new A.zm(o)],s),B.a5,B.aO)
-else{p=Math.min(q,r*0.7)
-p=A.y0(A.d([A.y0(A.d([A.WU(o,q*0.1+25,o),new A.r2(o)],s),B.a5,B.b9,0),new A.tQ(o)],s),B.a5,B.b9,p*0.7*0.66)
+else{p=Math.min(q,r*0.8)
+p=A.y0(A.d([A.y0(A.d([A.WU(o,q*0.1+25,o),new A.r2(o)],s),B.a5,B.b9,0),new A.tQ(o)],s),B.a5,B.b9,p*0.8*0.66)
 s=p}return A.iu(o,s,m.ax.k2,o,o,o,o,o)}}
 A.r2.prototype={
 P(a){var s,r,q,p=null,o=A.pz(a),n=o.f
@@ -54483,24 +54483,25 @@ $S:0}
 A.tD.prototype={
 an(){return new A.HP()}}
 A.HP.prototype={
-P(a){var s,r,q,p,o,n,m,l,k=null,j=A.pz(a),i=j.f
-i===$&&A.b()
-if(i){s=j.d
+P(a){var s,r,q,p,o,n,m,l,k,j=null,i=A.pz(a),h=i.f
+h===$&&A.b()
+if(h){s=i.d
 s===$&&A.b()
-r=s}else{s=j.e
+r=s}else{s=i.e
 s===$&&A.b()
-r=s}if(i){i=j.e
-i===$&&A.b()
-q=i}else{i=j.d
-i===$&&A.b()
-q=i}p=A.AP(a,t.EI)
-i=A.WU(k,k,r)
+r=s}if(h){h=i.e
+h===$&&A.b()
+q=h}else{h=i.d
+h===$&&A.b()
+q=h}p=A.AP(a,t.EI)
+h=A.WU(j,j,r)
 s=A.cb(a)
-o=A.WU(k,q*0.1,k)
-n=p.gHI()
-m=p.a
-l=t.E
-return A.y0(A.d([i,A.iu(k,A.BC(A.d([o,A.TA(m,n,q,"Home","l",1,r),A.TA(m,p.gHK(),q,"About me","m",2,r),A.TA(m,p.gHM(),q,"My projects","m",3,r),A.TA(m,p.gHO(),q,"Contact me","m",4,r)],l),B.a5,B.b9),k,new A.eH(s.ax.y,k,k,new A.c7(B.r,B.r,new A.aQ(30,30),new A.aQ(30,30)),k,k,B.aX),k,k,k,r*0.8)],l),B.a5,B.aO,0)}}
+o=r>450?r*0.8:r
+n=A.WU(j,q*0.1,j)
+m=p.gHI()
+l=p.a
+k=t.E
+return A.y0(A.d([h,A.iu(j,A.BC(A.d([n,A.TA(l,m,q,"Home","l",1,r),A.TA(l,p.gHK(),q,"About me","m",2,r),A.TA(l,p.gHM(),q,"My projects","m",3,r),A.TA(l,p.gHO(),q,"Contact me","m",4,r)],k),B.a5,B.b9),j,new A.eH(s.ax.y,j,j,new A.c7(B.r,B.r,new A.aQ(30,30),new A.aQ(30,30)),j,j,B.aX),j,j,j,o)],k),B.a5,B.aO,0)}}
 A.a3b.prototype={
 $1(a){return new A.iW($.aI())},
 $S:346}
