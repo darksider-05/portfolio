@@ -30,8 +30,8 @@ class _TCState extends State<TC> {
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.secondary,
             borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(30),
-              bottomRight: Radius.circular(30),
+              bottomLeft: Radius.circular(31),
+              bottomRight: Radius.circular(31),
             ),
           ),
           width: vw > 450 ? vw * 0.8 : vw,
@@ -70,7 +70,7 @@ class _TCState extends State<TC> {
                 name: "Contact me",
                 width: vw,
                 height: vh,
-                place: "m",
+                place: "r",
                 f: nav.set4,
                 target: 4,
                 current: nav.currentpage,

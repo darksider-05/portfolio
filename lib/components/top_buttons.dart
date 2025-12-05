@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 Color lighten(Color color, [double amount = 0.12]) {
@@ -80,7 +78,7 @@ class _TitleWidgetState extends State<PageName> {
                   : Radius.zero,
             ),
           ),
-          width: max(widget.width * 0.7 / 4, 90),
+          width: widget.width > 450 ? widget.width * 0.8 / 4 : widget.width / 4,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

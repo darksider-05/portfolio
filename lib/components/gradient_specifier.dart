@@ -95,6 +95,90 @@ class Definer extends StatelessWidget {
               ],
             ),
           ),
+
+          //third one
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Listener(
+                    behavior: HitTestBehavior.translucent,
+                    onPointerHover: (_) => grad.setpage(1),
+                    onPointerDown: (_) => grad.setpage(1),
+                    child: const SizedBox.expand(),
+                  ),
+                ),
+                Expanded(
+                  child: Listener(
+                    behavior: HitTestBehavior.translucent,
+                    onPointerHover: (_) => grad.setpage(2),
+                    onPointerDown: (_) => grad.setpage(2),
+                    child: const SizedBox.expand(),
+                  ),
+                ),
+                Expanded(
+                  child: Listener(
+                    behavior: HitTestBehavior.translucent,
+                    onPointerHover: (_) => grad.setpage(3),
+                    onPointerDown: (_) => grad.setpage(3),
+                    child: const SizedBox.expand(),
+                  ),
+                ),
+                Expanded(
+                  child: Listener(
+                    behavior: HitTestBehavior.translucent,
+                    onPointerHover: (_) => grad.setpage(4),
+                    onPointerDown: (_) => grad.setpage(4),
+                    child: const SizedBox.expand(),
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          //fourth one
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Listener(
+                    behavior: HitTestBehavior.translucent,
+                    onPointerHover: (_) => grad.setpage(4),
+                    onPointerDown: (_) => grad.setpage(4),
+                    child: const SizedBox.expand(),
+                  ),
+                ),
+                Expanded(
+                  child: Listener(
+                    behavior: HitTestBehavior.translucent,
+                    onPointerHover: (_) => grad.setpage(3),
+                    onPointerDown: (_) => grad.setpage(3),
+                    child: const SizedBox.expand(),
+                  ),
+                ),
+                Expanded(
+                  child: Listener(
+                    behavior: HitTestBehavior.translucent,
+                    onPointerHover: (_) => grad.setpage(2),
+                    onPointerDown: (_) => grad.setpage(2),
+                    child: const SizedBox.expand(),
+                  ),
+                ),
+                Expanded(
+                  child: Listener(
+                    behavior: HitTestBehavior.translucent,
+                    onPointerHover: (_) => grad.setpage(1),
+                    onPointerDown: (_) => grad.setpage(1),
+                    child: const SizedBox.expand(),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
