@@ -1,0 +1,15 @@
+{
+    "home":{
+
+        "images":{
+            "myimage":"assets/home/myimage.jpg"
+        },
+        "texts":{
+            "title":"Introduction",
+            "description":"I am Ali Bahrkazemi, a second year computer engineering student at the university of Guilan. I am experienced in working with Flutter, and have already developed and released multiple apps, for multiple platforms. Even this webpage is made with Flutter. My app designs revolve around UX, mainly ease of use, and security. "
+        }
+    },
+    "aboutme":{},
+    "myprojects":{},
+    "contactme":{}
+}

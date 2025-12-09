@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/components/pages/aboutme.dart';
+import 'package:portfolio/components/pages/home.dart';
 import 'package:portfolio/settings/providers.dart';
 import 'package:provider/provider.dart';
 
@@ -16,9 +16,9 @@ class _WideState extends State<Wide> {
     final nav = context.watch<Nav>();
 
     return switch (nav.currentpage) {
-      1 => Aboutme(),
+      1 => Home(),
       2 => Container(),
-      _ => Aboutme(),
+      _ => Home(),
     };
   }
 }

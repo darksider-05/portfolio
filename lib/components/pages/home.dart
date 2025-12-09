@@ -1,16 +1,18 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:portfolio/settings/jsonload.dart';
+import 'package:provider/provider.dart';
 import '/settings/defaults.dart';
 
-class Aboutme extends StatefulWidget {
-  const Aboutme({super.key});
+class Home extends StatefulWidget {
+  const Home({super.key});
 
   @override
-  State<Aboutme> createState() => _WideState();
+  State<Home> createState() => _WideState();
 }
 
-class _WideState extends State<Aboutme> {
+class _WideState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     var defs = Defaults(context);
@@ -48,6 +50,8 @@ class Myimage extends StatelessWidget {
     var defs = Defaults(context);
     var vw = defs.vw();
     var vh = defs.vh();
+    final json = context.watch<Jsonload>();
+    final data = json.data?["home"]["images"]["myimage"];
 
     return ClipOval(
       child: ClipRRect(
@@ -58,7 +62,7 @@ class Myimage extends StatelessWidget {
               child: Transform.scale(
                 scale: 1.5,
                 child: Image.asset(
-                  'assets/myimage.jpg',
+                  data,
                   fit: BoxFit.cover,
                   alignment: Alignment.center,
                 ),
@@ -79,6 +83,8 @@ class Textpart extends StatelessWidget {
     var defs = Defaults(context);
     var vw = defs.vw();
     var vh = defs.vh();
+    final json = context.watch<Jsonload>();
+    final data = json.data?["home"]["texts"];
 
     return Container(
       color: Colors.transparent,
@@ -92,7 +98,10 @@ class Textpart extends StatelessWidget {
             child: Container(
               color: Colors.transparent,
               child: Center(
-                child: Text("Introduction", style: TextStyle(fontSize: 28)),
+                child: Text(
+                  data["title"] ?? "",
+                  style: TextStyle(fontSize: 28),
+                ),
               ),
             ),
           ),
@@ -100,7 +109,10 @@ class Textpart extends StatelessWidget {
             color: Colors.transparent,
             alignment: Alignment.topLeft,
             padding: EdgeInsets.symmetric(horizontal: 15),
-            child: Text("explaination", style: TextStyle(fontSize: 16)),
+            child: Text(
+              data["description"] ?? "",
+              style: TextStyle(fontSize: 16),
+            ),
           ),
         ],
       ),

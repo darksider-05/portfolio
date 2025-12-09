@@ -4,6 +4,7 @@ import 'package:portfolio/components/frame.dart';
 import 'package:portfolio/components/gradient_specifier.dart';
 import 'package:portfolio/components/top_controller.dart';
 import 'package:portfolio/settings/gradient.dart';
+import 'package:portfolio/settings/jsonload.dart';
 import 'package:portfolio/settings/providers.dart';
 import 'package:portfolio/settings/theme.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +15,7 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (_) => Nav()),
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider(create: (_) => Jsonload()),
         ChangeNotifierProvider(create: (_) => Grad()),
       ],
       child: MyApp(),
