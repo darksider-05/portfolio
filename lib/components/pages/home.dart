@@ -88,7 +88,7 @@ class Textpart extends StatelessWidget {
 
     return Container(
       color: Colors.transparent,
-      width: vw * 0.5,
+      width: vw > 600 ? vw * 0.5 : vw * 0.8,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -105,13 +105,15 @@ class Textpart extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            color: Colors.transparent,
-            alignment: Alignment.topLeft,
-            padding: EdgeInsets.symmetric(horizontal: 15),
-            child: Text(
-              data["description"] ?? "",
-              style: TextStyle(fontSize: 16),
+          Transform.translate(
+            offset: Offset(0, -vh * 0.1),
+            child: Container(
+              color: Colors.transparent,
+              alignment: Alignment.topLeft,
+              child: Text(
+                data["description"] ?? "",
+                style: TextStyle(fontSize: 16),
+              ),
             ),
           ),
         ],
