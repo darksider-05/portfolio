@@ -43,15 +43,18 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final data = Provider.of<Jsonload>(context);
     return Scaffold(
-      body: Stack(
-        children: [
-          Wide(),
-          Line(),
-          Positioned(top: 0, child: TC()),
-          Definer(),
-        ],
-      ),
+      body: data.isloading == Loadstate.finished
+          ? Stack(
+              children: [
+                Wide(),
+                Line(),
+                Positioned(top: 0, child: TC()),
+                Definer(),
+              ],
+            )
+          : Center(child: Text("Loading...")),
     );
   }
 }
