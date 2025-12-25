@@ -1,15 +1,25 @@
 {
-    "home":{
-
-        "images":{
-            "myimage":"assets/home/myimage.jpg"
+    "home": {
+        "images": {
+            "myimage": "assets/home/myimage.jpg"
         },
-        "texts":{
-            "title":"Introduction",
-            "description":"I am Ali Bahrkazemi, a second year computer engineering student at the university of Guilan. I am experienced in working with Flutter, and have already developed and released multiple apps, for multiple platforms. Even this webpage is made with Flutter. My app designs revolve around UX, mainly ease of use, and security. "
+        "texts": {
+            "title": "Introduction",
+            "description": "I am Ali Bahrkazemi, a second year computer engineering student at the university of Guilan. I am experienced in working with Flutter, and have already developed and released multiple apps, for multiple platforms. Even this webpage is made with Flutter. My app designs revolve around UX, mainly ease of use, and security. "
         }
     },
-    "aboutme":{},
-    "myprojects":{},
-    "contactme":{}
+    "aboutme": {
+        "blocks": [
+            [
+                "",
+                [
+                    "After years of using applications built by others, I consistently noticed shortcomings in usability and user privacy. That led me to start developing my own apps, focusing on clear design, ease of use, and responsible data handling.",
+                    "My priority is UX-first design — users shouldn't have to think about what a button does or figure out how something works. Everything should be self-explanatory. My apps are secure by design; even if it introduces some redundancy, safety remains a core principle. I also avoid storing unnecessary data, limiting persistence to essential app settings, even on the local machine.",
+                    "I choose my projects based on ideas first, then learn whatever is required to bring them to life. \nI am currently learning custom animations to gain more control over motion and create smoother, more meaningful transitions."
+                ]
+            ]
+        ]
+    },
+    "myprojects": {},
+    "contactme": {}
 }
