@@ -107,7 +107,10 @@ class Textpart extends StatelessWidget {
             child: Container(
               color: Colors.transparent,
               alignment: Alignment.topLeft,
-              child: Text(data["description"], style: TextStyle(fontSize: 16)),
+              child: Text(
+                data["description"],
+                style: TextStyle(fontSize: 18.5, height: 1.8),
+              ),
             ),
           ),
         ],

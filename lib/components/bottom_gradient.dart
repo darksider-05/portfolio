@@ -11,6 +11,7 @@ class Line extends StatelessWidget {
     final grad = Provider.of<Grad>(context);
     var defs = Defaults(context);
     var vw = defs.vw();
+    var vh = defs.vh();
 
     return Positioned(
       bottom: 0,
@@ -21,7 +22,7 @@ class Line extends StatelessWidget {
         builder: (context, animGradient, _) {
           return Container(
             width: vw,
-            height: 7,
+            height: vh * 0.01,
             decoration: BoxDecoration(
               gradient: animGradient,
               boxShadow: [

@@ -19,7 +19,7 @@ It reflects my journey of learning and experimenting with Flutter.
 
 ## 📦 Installation
 
-Instructions for downloading and running the project will be added once development is complete.  
+Instructions for running and personalizing the project will be added once development is complete.  
 
 ## 🛠️ Tech Stack
 
