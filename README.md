@@ -2,8 +2,18 @@
 
 [go to page](https://darksider-05.github.io/portfolio/)
 
-A personal portfolio page built with **Flutter**, designed to showcase my skills and projects.  
+A personal portfolio page built with **Flutter**, designed to showcase my skills and projects.   
 Although Flutter isn’t traditionally the best option for building web apps, it provided a faster path for me compared to learning HTML, CSS, and JavaScript.
+
+## Though this is a portfolio, it **does not** stop there
+
+This project is designed to be more than a static personal website.
+
+- The entire site is driven by a JSON-based configuration file that contains all textual content in a semi-dynamic structure.
+- The Flutter architecture makes it easy to swap out visual assets such as images without modifying the core code.
+- All assets (including images and file names) are defined in the JSON configuration, allowing full customization and renaming for a personalized experience.
+
+This approach allows the project to function as both a personal portfolio and a customizable template for others.
 
 ## ✨ Features
 
