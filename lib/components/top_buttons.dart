@@ -62,7 +62,9 @@ class _TitleWidgetState extends State<PageName> {
               : Radius.zero,
           bottomRight: widget.place == "r" && widget.current != 3
               ? const Radius.circular(30)
-              : Radius.zero,
+              : widget.width > 450
+              ? Radius.zero
+              : const Radius.circular(30),
         ),
         highlightColor: Colors.transparent,
         splashColor: Colors.transparent,
@@ -73,9 +75,17 @@ class _TitleWidgetState extends State<PageName> {
               bottomLeft: widget.place == "l"
                   ? const Radius.circular(30)
                   : Radius.zero,
-              bottomRight: widget.place == "r" && widget.current != 3
-                  ? const Radius.circular(30)
+              bottomRight: widget.place == "r"
+                  ? widget.current == 3
+                        ? widget.width > 450
+                              ? Radius.zero
+                              : const Radius.circular(30)
+                        : const Radius.circular(30)
                   : Radius.zero,
+              // ? const Radius.circular(30)
+              //: widget.width > 450
+              //? Radius.zero
+              //: const Radius.circular(30),
             ),
           ),
           width: widget.width > 450 ? widget.width * 0.8 / 4 : widget.width / 4,

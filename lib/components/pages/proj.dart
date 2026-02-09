@@ -86,7 +86,7 @@ class _MyProjectsState extends State<MyProjects> {
                 ),
               )
             : Positioned(
-                top: vh * 0.12,
+                top: vh * 0.11,
                 child: SizedBox(
                   width: vw,
                   child: Row(
@@ -108,12 +108,20 @@ class _MyProjectsState extends State<MyProjects> {
                                       (nav.proj - 1 + index) % data.length)
                                   ? scheme.primary
                                   : scheme.secondary,
-                              width: vw * 0.6 / 3,
+                              width: vw * 0.7 / 3,
                               height: vh * 0.08,
                               child: Center(
                                 child: Text(
                                   data[(nav.proj - 1 + index) % data.length][0],
-                                  style: TextStyle(fontSize: 13),
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color:
+                                        (nav.proj ==
+                                            (nav.proj - 1 + index) %
+                                                data.length)
+                                        ? scheme.onPrimary
+                                        : scheme.onSecondary,
+                                  ),
                                 ),
                               ),
                             ),

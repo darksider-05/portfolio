@@ -111,7 +111,10 @@ class _ContactmeState extends State<Contactme> {
                       flag1 = true;
                     });
                   },
-                  child: Text("Rules"),
+                  child: Text(
+                    "Rules",
+                    style: TextStyle(color: scheme.onPrimary),
+                  ),
                 ),
                 SizedBox(
                   width: vw * 0.6,
@@ -132,7 +135,10 @@ class _ContactmeState extends State<Contactme> {
                       flag2 = true;
                     });
                   },
-                  child: Text("send"),
+                  child: Text(
+                    "send",
+                    style: TextStyle(color: scheme.onPrimary),
+                  ),
                 ),
               ],
             ),
