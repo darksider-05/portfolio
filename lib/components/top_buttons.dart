@@ -60,7 +60,7 @@ class _TitleWidgetState extends State<PageName> {
           bottomLeft: widget.place == "l"
               ? const Radius.circular(30)
               : Radius.zero,
-          bottomRight: widget.place == "r"
+          bottomRight: widget.place == "r" && widget.current != 3
               ? const Radius.circular(30)
               : Radius.zero,
         ),
@@ -73,7 +73,7 @@ class _TitleWidgetState extends State<PageName> {
               bottomLeft: widget.place == "l"
                   ? const Radius.circular(30)
                   : Radius.zero,
-              bottomRight: widget.place == "r"
+              bottomRight: widget.place == "r" && widget.current != 3
                   ? const Radius.circular(30)
                   : Radius.zero,
             ),

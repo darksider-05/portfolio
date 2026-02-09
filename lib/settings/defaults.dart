@@ -16,10 +16,12 @@ class Defaults {
     isver = MediaQuery.of(context).orientation == Orientation.portrait;
   }
 
+  // viewport width
   double vw() {
     return isver ? scw : sch;
   }
 
+  // viewport height
   double vh() {
     return isver ? sch : scw;
   }

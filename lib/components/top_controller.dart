@@ -31,7 +31,9 @@ class _TCState extends State<TC> {
             color: Theme.of(context).colorScheme.secondary,
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(31),
-              bottomRight: Radius.circular(31),
+              bottomRight: nav.currentpage != 3
+                  ? const Radius.circular(31)
+                  : Radius.zero,
             ),
           ),
           width: vw > 450 ? vw * 0.8 : vw,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class Nav extends ChangeNotifier {
   int currentpage = 1;
+  int proj = 0;
 
   void set1() {
     if (currentpage != 1) currentpage = 1;
@@ -21,5 +22,12 @@ class Nav extends ChangeNotifier {
   void set4() {
     if (currentpage != 4) currentpage = 4;
     notifyListeners();
+  }
+
+  void setx(int x) {
+    if (proj != x) {
+      proj = x;
+      notifyListeners();
+    }
   }
 }

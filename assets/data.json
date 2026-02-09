@@ -20,6 +20,187 @@
             ]
         ]
     },
-    "myprojects": {},
+    "myprojects": [
+        [
+            "This portfolio",
+            "Config-driven portfolio platform",
+            [
+                [],
+                [],
+                []
+            ],
+            [
+                "Project Overview\nMy Portfolio Page is a frontend web application built to present my professional profile, skills, and projects in a clear and engaging way. It targets developers and creatives who want a polished online presence, as well as recruiters seeking a quick, high-level understanding of a candidate. The project solves the problem of static, hard-to-maintain portfolios by offering a flexible and content-driven approach.",
+                "Motivation & Goals\nThis project was built as both a personal branding tool and a learning exercise. I wanted to challenge myself by using a non-traditional technology for the web and explore how far I could push it in a real-world scenario. The goal was to grow as a developer while creating something reusable, adaptable, and genuinely useful beyond my own needs.",
+                "Key Features\n• Clean, modern portfolio layout designed to highlight projects and skills clearly.\n• Content-driven structure that allows text and assets to be changed without rewriting core logic.\n• Responsive experience that adapts smoothly to different screen sizes.\n• Designed to function as both a personal portfolio and a reusable template for others.\n• Straightforward customization flow aimed at reducing friction for future users.",
+                "Design & UX Considerations\nThe design prioritizes clarity, readability, and focus. Visual elements are intentionally minimal so that content remains the center of attention. Layout choices were made to guide the reader naturally through sections such as introduction, projects, and skills. The interface adapts across desktop and smaller screens to maintain consistency, balance, and usability regardless of device.",
+                "Technical Approach\nThe application follows a structured, component-based architecture that separates presentation from content. All user-facing text and assets are defined through a centralized configuration, enabling easy updates and reuse. This approach keeps the system flexible and scalable while ensuring the core application remains stable as content evolves.",
+                "Design strategy\nAlthough the project is deployed as a web application, it leverages a framework typically associated with cross-platform development. This strategic choice allowed me to reuse familiar patterns, focus on architecture and design decisions, and avoid context switching between multiple technologies. The result is a maintainable, consistent codebase aligned with long-term growth and experimentation.",
+                "Challenges & Solutions\nOne of the main challenges was choosing the data structure. I had to choose something that was simple to use by anyone, while still being comfortable to work with. As a result, I chose to use json files since they are easy to view and edit.\n\nAnother challenge was to find a way to use images in different screen sizes, with the complication different orientations on smaller screen sizes. \nI came up with having three main sizes for screens: laptops, tablets, and phones. each has its own image, and the size of the image is given by the user for compatiblity with the image orientation.",
+                "What I Learned\nBuilding this project strengthened my ability to think in terms of architecture rather than isolated features. I gained experience designing systems that prioritize reuse, scalability, and clarity. The project also improved my decision-making skills, especially when choosing tools and trade-offs that supported long-term maintainability over short-term convenience.",
+                "Links\nThe complete source code is available on GitHub\nThis project is this very website that is being used as my own protfolio"
+            ]
+        ],
+        [
+            "LiveText",
+            "Zero-config LAN text sharing",
+            [
+                [
+                    "assets/my projects/LT_L.jpeg",
+                    1200,
+                    675
+                ],
+                [
+                    "assets/my projects/LT_M.jpeg",
+                    900,
+                    506
+                ],
+                [
+                    "assets/my projects/LT_S.jpeg",
+                    390,
+                    844
+                ]
+            ],
+            [
+                "Project Overview\nLive Text is a cross-platform application designed to synchronize text in real time between two devices on the same local network. It is built for developers, writers, and power users who frequently move text between devices and want a fast, private alternative to cloud-based tools. The project addresses the friction and overhead of traditional text transfer by enabling instant sharing without accounts, internet access, or third-party services.",
+                "Motivation & Goals\nLive Text was created to explore how simple, focused software can outperform more complex solutions in everyday workflows. The goal was to build a tool that prioritizes speed, privacy, and reliability while deliberately avoiding unnecessary abstractions. The project also served as an opportunity to deepen my understanding of networking fundamentals and cross-platform application design.",
+                "Key Features\n• Real-time, two-way text synchronization between a single host and client.\n• Seamless operation across mobile and desktop platforms.\n• Zero-configuration experience with automatic device discovery.\n• Fully local communication with no reliance on internet connectivity.\n• Optional clipboard integration for streamlined copy-and-paste workflows.\n• Predictable single-client architecture for stability and simplicity.\n• Fast recovery from disconnections without persistent state or manual cleanup.",
+                "Design & UX Considerations\nLive Text is built around minimizing user effort. The interface exposes only what is necessary to establish and maintain a connection, reducing cognitive load and setup time. Visual and interaction design focus on clarity and responsiveness so users can immediately understand the application’s state. The experience remains consistent across screen sizes and platforms, emphasizing function over decoration.",
+                "Technical Approach\nThe application uses a lightweight client-host model optimized for local networks. Responsibilities are clearly separated between device discovery, connection lifecycle management, and data synchronization. This modular structure allows each subsystem to remain simple and focused while operating cohesively. The architecture favors ephemeral state and short-lived sessions to reduce complexity, risk, and resource usage.",
+                "Design Strategy\nA core design decision was to rely exclusively on local network communication rather than cloud infrastructure. This constraint shaped how connections are established, maintained, and terminated. By limiting the system to a single active connection at a time, the application achieves predictable behavior and avoids many edge cases associated with multi-user coordination.",
+                "Challenges & Solutions\nOne major challenge was implementing reliable local network discovery. Flutter currently has limited maturity in this area. While LAN broadcast discovery was an option, it required location permissions and negatively impacted user experience.\n\nI evaluated mDNS as an alternative, but the available solutions were not mature enough for production use. As a result, I designed a custom discovery protocol, which later aligned with what is commonly known as a Unicast Network Sweep approach.\n\nAnother challenge involved handling edge cases when retrieving the IP address of a phone acting as a hotspot host. Due to the lack of suitable packages, I implemented native platform code to solve this problem.",
+                "What I Learned\nThis project strengthened my ability to design systems under strict constraints with clearly defined priorities. I learned how limiting scope—such as enforcing single-client connections—can significantly improve reliability, predictability, and user experience.\n\nI also gained experience translating low-level technical decisions into tangible user benefits. Building Live Text required carefully balancing flexibility, security, and usability. These trade-offs improved my ability to reason about architecture holistically and communicate technical intent through product behavior rather than documentation alone.",
+                "Links\nThe full source code for Live Text is available on GitHub, where the latest release can be accessed."
+            ]
+        ],
+        [
+            "FlipClock",
+            "Animated flip clock UI",
+            [
+                [
+                    "assets/my projects/FC_L.jpeg",
+                    1200,
+                    675
+                ],
+                [
+                    "assets/my projects/FC_M.jpeg",
+                    900,
+                    506
+                ],
+                [
+                    "assets/my projects/FC_S.jpeg",
+                    390,
+                    844
+                ]
+            ],
+            [
+                "Project Overview\nFlip Clock is a minimalist, responsive digital clock application featuring a flip-style visual interface. It is designed as a focused frontend experience for users who value clean aesthetics and clear time presentation across devices. The project addresses the common issue of cluttered or rigid clock interfaces by providing a visually engaging, adaptable, and distraction-free alternative.",
+                "Motivation & Goals\nFlip Clock initially began as a personal request from a friend, but quickly proved to be more broadly useful than anticipated. The project became an opportunity to practice managing continuously updating state in a predictable and maintainable way, while also exploring how to design interfaces that react seamlessly to different screen sizes and orientations.",
+                "Key Features\n• Real-time display of hours, minutes, and seconds with continuous updates.\n• Clear presentation of the current date alongside the time.\n• Smooth flip-style number transitions for enhanced visual feedback.\n• Responsive layout that adapts automatically to portrait and landscape orientations.\n• Minimalist interface focused on readability and motion rather than decoration.",
+                "Design & UX Considerations\nThe design philosophy focuses on clarity, rhythm, and balance. The flip animation creates visual continuity as time changes, allowing users to intuitively track updates without distraction. Layout decisions are driven by device orientation, ensuring the clock remains visually balanced whether viewed vertically or horizontally. Spacing, typography, and motion are carefully tuned for at-a-glance legibility.",
+                "Technical Approach\nThe application is structured around a clear separation of presentation, state management, and theming concerns. Time and date updates are handled centrally and propagated consistently throughout the interface. This architecture keeps the UI reactive while remaining easy to reason about during continuous runtime. The overall design prioritizes predictability and simplicity over feature complexity.",
+                "Design Strategy\nResponsiveness is treated as a core architectural principle rather than an afterthought. The layout dynamically adjusts based on orientation, allowing shared components to rearrange without duplication. This ensures consistency across devices and screen sizes while keeping the codebase clean and maintainable.",
+                "Challenges & Solutions\nOne challenge involved reliably detecting device orientation, as width and height values can behave inconsistently during transitions in Flutter. I developed a custom solution that evolved into a reusable package I now include in most of my projects.\n\nAnother challenge was designing a provider class capable of self-updating without placing unnecessary strain on the UI thread.\n\nI also developed a centralized theming system that governs the entire application rather than relying solely on Flutter's built-in theming. This approach later became a foundation for theming strategies in my subsequent projects.",
+                "What I Learned\nBuilding Flip Clock strengthened my ability to create interfaces that respond gracefully to any screen size or orientation. The project improved my understanding of continuously updating interfaces and reinforced best practices for maintaining clean, predictable state management over time. I also gained experience designing reusable global data and systems that can be leveraged across multiple applications.",
+                "Links\nThe project's source code and latest release are available on GitHub."
+            ]
+        ],
+        [
+            "MineSweeper",
+            "Game logic + UX balance",
+            [
+                [
+                    "assets/my projects/MS_L.jpeg",
+                    1200,
+                    675
+                ],
+                [
+                    "assets/my projects/MS_M.jpeg",
+                    900,
+                    506
+                ],
+                [
+                    "assets/my projects/MS_S.jpeg",
+                    390,
+                    844
+                ]
+            ],
+            [
+                "Project Overview\nMinesweeper is a modern reinterpretation of the classic puzzle game, built as a lightweight and responsive application. It targets casual players, puzzle enthusiasts, and anyone looking for a familiar experience presented with a fresh visual style. The project addresses the limitations of outdated or rigid implementations by delivering a fast, accessible version that works seamlessly across platforms, including the web.",
+                "Motivation & Goals\nThis project was created to revisit a well-known game while focusing on performance, polish, and cross-platform delivery. The goal was to modernize the experience without losing the core mechanics that make Minesweeper engaging. At the same time, it served as an opportunity to strengthen my ability to design interactive systems that feel responsive, configurable, and enjoyable for a wide range of users.",
+                "Key Features\n• Multiple difficulty levels ranging from beginner to expert, including customizable game settings.\n• Dynamic theme system with a colorful but balanced visual palette.\n• Smooth, responsive gameplay optimized for quick interactions.\n• Web-based version that enables instant play without installation.\n• Consistent experience across supported desktop and mobile platforms.\n• Lightweight architecture that prioritizes speed and responsiveness.",
+                "Design & UX Considerations\nThe design emphasizes clarity, feedback, and approachability. Visual elements are intentionally colorful while maintaining board readability at all times. User interactions provide immediate feedback to reinforce player decisions and reduce frustration. The interface scales across different screen sizes, ensuring the game remains comfortable to play on both desktop and mobile devices.",
+                "Technical Approach\nThe application is structured around a clear separation between game logic, presentation, and configuration. This allows the core rules of Minesweeper to remain stable while supporting multiple difficulty levels and visual themes. The architecture prioritizes predictable state transitions, which is essential for maintaining responsiveness during rapid user interactions.",
+                "Design Strategy\nCross-platform support was a core consideration throughout development. The project is designed to behave consistently across platforms, with shared logic driving gameplay and platform-specific layers handling presentation when needed. This strategy improves maintainability and makes it easier to extend support to additional platforms in the future.",
+                "Challenges & Solutions\nMinesweeper was the first Flutter application I developed, and it exposed many early-stage architectural and design mistakes. State management relied heavily on setState(), navigation patterns were inconsistent, and the UI was designed for a fixed screen size without responsiveness.\n\nA few months later, I rebuilt the entire application from scratch using the knowledge gained from subsequent projects. The new version introduced proper state structure, consistent navigation patterns, and fully responsive layouts across screen sizes.",
+                "What I Learned\nBuilding Minesweeper was a foundational step in my development career. The project forced me to research deeply, experiment with different approaches, and overcome practical implementation challenges. It also taught me the importance of revisiting and refactoring earlier work to apply improved architectural thinking and best practices.",
+                "Links\nThe project source code is available on GitHub, along with a live web version and downloadable release builds."
+            ]
+        ],
+        [
+            "Ecovision app",
+            "Mobile client version of a team project",
+            [
+                [
+                    "assets/my projects/EV1.jpeg",
+                    390,
+                    844
+                ],
+                [
+                    "assets/my projects/EV1.jpeg",
+                    390,
+                    844
+                ],
+                [
+                    "assets/my projects/EV2.jpeg",
+                    390,
+                    844
+                ]
+            ],
+            [
+                "Project Overview\nEcoVision App is an Android client application designed to serve as the primary user-facing interface for the larger EcoVision ecosystem. It is built for users who want to browse, read, and explore curated news content delivered from a local server. The app translates a complex, data-heavy backend system into a clean, intuitive, and navigable mobile experience.",
+                "Motivation & Goals\nThis project was driven by my role as one of the lead developers on the broader EcoVision platform. With deep familiarity with the server architecture and data models, my goal was to transform backend complexity into a user-friendly mobile application. The project focused on bridging backend intelligence with frontend usability while strengthening my skills in client-server integration, data modeling, and mobile UX design.",
+                "Key Features\n• Connects to a locally hosted EcoVision server using a user-provided network address.\n• Aggregates all available news data exposed by server APIs into a unified interface.\n• Displays content in clearly organized categories for efficient discovery.\n• Side navigation menu for fast and consistent section switching.\n• Automatic text direction handling supporting both left-to-right and right-to-left languages.\n• Optimized specifically for Android devices with strong emphasis on readability and navigation clarity.",
+                "Design & UX Considerations\nThe interface is designed to reduce friction when browsing large volumes of content. Information hierarchy and categorization were carefully structured to help users quickly find relevant topics. The side navigation menu provides persistent access to all major sections without overwhelming the reading area. Special attention was given to multilingual support, including automatic text direction detection to ensure a natural reading experience across languages.",
+                "Technical Approach\nAt a high level, the application operates as a dedicated client within a server-driven ecosystem. It dynamically consumes structured data exposed by the EcoVision backend and transforms it into a mobile-optimized presentation layer. Rather than hardcoding content, the app adapts to whatever data the server provides, making it flexible and resilient to backend evolution and expansion.",
+                "Design Strategy\nClose alignment with backend architecture was a key factor in the project’s success. Because I contributed to designing server-side data structures and API endpoints, the client could be built with a precise understanding of system data flow. This enabled efficient data aggregation, predictable behavior, and a clean separation between backend responsibilities and client presentation.",
+                "Challenges & Solutions\nOne challenge involved managing and organizing large volumes of heterogeneous data coming from multiple backend endpoints. To improve structure and maintainability, the backend was adjusted to expose dedicated endpoints per category. Additional safeguards were implemented on the client to ensure categories remained clearly separated and consistently presented.\n\nAnother challenge was ensuring multilingual content rendered naturally. Since only a limited number of languages use right-to-left text direction, I implemented lightweight detection by scanning text for RTL character ranges and dynamically adjusting layout direction when necessary.",
+                "What I Learned\nWorking on EcoVision App deepened my understanding of how large backend systems translate into user-facing products. I learned how architectural decisions made at the server level directly impact client complexity and user experience. The project strengthened my ability to reason about data contracts, API design, and the importance of system-wide consistency.\n\nI also gained valuable experience building applications within a collaborative, team-driven ecosystem. Coordinating client behavior with a shared backend reinforced the importance of clear interfaces and predictable data structures. This project strengthened my confidence in taking ownership of a critical subsystem while aligning with a larger codebase.",
+                "Links\nThe Android client source code and released application are available on GitHub."
+            ]
+        ],
+        [
+            "CodePanel",
+            "Terminal folder navigation tool",
+            [
+                [
+                    "assets/my projects/CP.jpeg",
+                    1200,
+                    675
+                ],
+                [
+                    "assets/my projects/CP.jpeg",
+                    900,
+                    506
+                ],
+                [
+                    "assets/my projects/CP.jpeg",
+                    390,
+                    219
+                ]
+            ],
+            [
+                "Project Overview\nCodePanel is a lightweight command-line tool designed to streamline directory navigation, primarily for developers. It is built for users who spend significant time working in terminal environments and navigating deeply nested project structures. The tool addresses the clutter of traditional directory listings by intentionally displaying only folders, allowing users to move through projects faster and with less distraction.",
+                "Motivation & Goals\nThis project was driven by a desire to reduce friction in everyday development workflows. Traditional directory navigation mixes files and folders, creating unnecessary noise when the goal is simply to move through a structure. The goal was to design a focused utility that prioritizes speed, clarity, and intentional constraints, while also deepening my experience building practical CLI tools using Dart.",
+                "Key Features\n• Interactive, menu-driven directory navigation directly from the terminal.\n• Folders-only view that keeps the interface clean and easy to scan.\n• Number-based selection for fast navigation into subdirectories.\n• Simple commands for moving to the parent directory or exiting the tool.\n• One-command integration to open the current directory in VS Code.\n• Ability to open the current directory in the native system file explorer.\n• Cross-platform support across Windows, macOS, and Linux.\n• Configurable starting directory for flexible workflow integration.",
+                "Design & UX Considerations\nThe design philosophy focuses on intentional limitation. By hiding files entirely, the interface reduces cognitive load and keeps users focused on directory structure rather than content. Color-coded terminal output improves readability and helps distinguish between directories, commands, and system feedback at a glance. The interaction model is deliberately minimal, prioritizing predictable commands and fast feedback over feature density.",
+                "Technical Approach\nAt a high level, the tool follows a loop-driven interaction model where the current directory state is continuously updated based on user input. Responsibilities are separated between configuration loading, directory rendering, and command handling. This structure keeps the tool easy to reason about and ensures consistent behavior across supported platforms.",
+                "Design Strategy\nCross-platform compatibility was treated as a core design requirement. The application uses platform-aware integrations to interact with external tools such as code editors and native file explorers. By keeping core logic platform-agnostic and isolating OS-specific functionality, the project maintains clean architecture while still delivering native-feeling integrations.",
+                "Challenges & Solutions\nOne challenge was designing an interface that remained intuitive while operating entirely within a terminal environment. I refined the menu structure and visual hierarchy to ensure navigation options were immediately understandable, and used color and spacing carefully to improve readability without overwhelming the user.\n\nAnother challenge involved handling platform-specific behavior consistently across operating systems. This was solved by isolating OS-dependent functionality behind abstraction layers, allowing the core navigation logic to remain identical regardless of environment.\n\nAdditional work focused on robust error handling and configuration validation to ensure the tool behaves predictably even when given invalid paths or incomplete configuration.",
+                "What I Learned\nThis project strengthened my understanding of designing tools with strict constraints and clear purpose. I learned how limiting scope—such as focusing exclusively on folder navigation—can significantly improve usability and performance. Building a CLI utility also reinforced the importance of clear feedback, defensive error handling, and predictable behavior in non-graphical interfaces.",
+                "Links\nThe complete source code is available on GitHub, where users can explore the project in detail and download releases for their platform."
+            ]
+        ]
+    ],
     "contactme": {}
 }

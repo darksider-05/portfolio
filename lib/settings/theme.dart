@@ -141,8 +141,8 @@ final Map<String, Map<String, Color>> portfolioThemes = {
   },
 
   "SylvanAura": {
-    "primary": const Color(0xFF409844),
-    "secondary": const Color(0xFF876254),
+    "primary": const Color(0xFF876254),
+    "secondary": const Color(0xFF409844),
     "background": const Color(0xFF73CC78),
     "text": Color(0xFFEFFFFF),
   },
