@@ -53,7 +53,7 @@ class _ContactmeState extends State<Contactme> {
     String subject,
     String message,
   ) async {
-    final url = Uri.parse("https://darksider05.pythonanywhere.com/");
+    final url = Uri.parse("https://darksider05.pythonanywhere.com/relay/");
 
     final Map<String, dynamic> data = {
       "name": name,
