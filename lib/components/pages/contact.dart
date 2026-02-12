@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/settings/defaults.dart';
+import "dart:convert";
+import 'package:http/http.dart' as http;
 
 class Contactme extends StatefulWidget {
   const Contactme({super.key});
@@ -13,6 +15,7 @@ class _ContactmeState extends State<Contactme> {
   var email = TextEditingController();
   var subject = TextEditingController();
   var mess = TextEditingController();
+  String? result;
   bool flag1 = false;
   bool flag2 = false;
   bool flag3 = false;
@@ -42,6 +45,45 @@ class _ContactmeState extends State<Contactme> {
     }
 
     return answer;
+  }
+
+  Future<void> send(
+    String name,
+    String? email,
+    String subject,
+    String message,
+  ) async {
+    final url = Uri.parse("https://darksider05.pythonanywhere.com/");
+
+    final Map<String, dynamic> data = {
+      "name": name,
+      "email": email == "" ? "Not Given" : email,
+      "subject": subject,
+      "message": message,
+    };
+
+    try {
+      final response = await http.post(
+        url,
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode(data),
+      );
+
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        setState(() {
+          result =
+              " thank you for your time. the message was sent successfully.";
+        });
+      } else {
+        setState(() {
+          result = "Error: ${response.statusCode}";
+        });
+      }
+    } catch (e) {
+      setState(() {
+        result = "Exception: $e";
+      });
+    }
   }
 
   @override
@@ -205,78 +247,113 @@ class _ContactmeState extends State<Contactme> {
               : Container(),
 
           flag3
-              ? Container(
-                  width: vw,
-                  height: vh,
-                  color: Colors.black12,
-                  child: Center(
-                    child: Container(
-                      width: vw * 0.7,
-                      height: vh * 0.8,
-                      color: Colors.white,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        spacing: vh * 0.01,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            "All is ready",
-                            style: TextStyle(color: Colors.black),
-                          ),
-                          Text(
-                            "Please be aware that:",
-                            style: TextStyle(color: Colors.black),
-                          ),
-                          Text(
-                            "The server will only accept one message about every hour.",
-                            style: TextStyle(color: Colors.black),
-                          ),
-                          Text(
-                            "This includes other people's messages also.",
-                            style: TextStyle(color: Colors.black),
-                          ),
-                          Row(
-                            spacing: vw * 0.05,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.red,
+              ? result == null
+                    ? Container(
+                        width: vw,
+                        height: vh,
+                        color: Colors.black12,
+                        child: Center(
+                          child: Container(
+                            width: vw * 0.7,
+                            height: vh * 0.8,
+                            color: Colors.white,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              spacing: vh * 0.01,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "All is ready",
+                                  style: TextStyle(color: Colors.black),
                                 ),
-                                onPressed: () {
-                                  setState(() {
-                                    flag3 = false;
-                                  });
-                                },
-                                child: Center(
-                                  child: Text(
-                                    "Cancel",
-                                    style: TextStyle(color: Colors.black),
-                                  ),
+                                Text(
+                                  "Please be aware that:",
+                                  style: TextStyle(color: Colors.black),
                                 ),
-                              ),
+                                Text(
+                                  "The server will only accept one message about every hour.",
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                                Text(
+                                  "This includes other people's messages also.",
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                                Row(
+                                  spacing: vw * 0.05,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Colors.red,
+                                      ),
+                                      onPressed: () {
+                                        setState(() {
+                                          flag3 = false;
+                                        });
+                                      },
+                                      child: Center(
+                                        child: Text(
+                                          "Cancel",
+                                          style: TextStyle(color: Colors.black),
+                                        ),
+                                      ),
+                                    ),
 
-                              ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.green,
+                                    ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Colors.green,
+                                      ),
+                                      onPressed: () {
+                                        send(
+                                          name.text,
+                                          email.text,
+                                          subject.text,
+                                          mess.text,
+                                        );
+
+                                        ScaffoldMessenger.of(
+                                          context,
+                                        ).showSnackBar(
+                                          SnackBar(
+                                            content: Text("sending..."),
+                                            duration: Duration(seconds: 3),
+                                          ),
+                                        );
+                                      },
+                                      child: Center(
+                                        child: Text(
+                                          //"Send",
+                                          "send",
+                                          style: TextStyle(color: Colors.black),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                onPressed:
-                                    () {}, //////////////////////////////////////////////////////////
-                                child: Center(
-                                  child: Text(
-                                    //"Send",
-                                    "WIP",
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ],
-                      ),
-                    ),
-                  ),
-                )
+                        ),
+                      )
+                    : GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            flag3 = false;
+                            result = null;
+                          });
+                        },
+                        child: Container(
+                          width: vw,
+                          height: vh,
+                          color: Colors.black12,
+                          child: Container(
+                            width: vw * 0.7,
+                            height: vh * 0.6,
+                            color: scheme.secondary,
+                            child: Center(child: Text(result ?? "")),
+                          ),
+                        ),
+                      )
               : Container(),
         ],
       ),
