@@ -81640,7 +81640,7 @@ q.z=!0}return p},
 uH(a,b,c,d){return this.Xo(a,b,c,d)},
 Xo(a,b,c,d){var s=0,r=A.O(t.H),q=1,p=[],o=this,n,m,l,k,j,i,h,g
 var $async$uH=A.P(function(e,f){if(e===1){p.push(f)
-s=q}for(;;)switch(s){case 0:k=A.hp("https://darksider05.pythonanywhere.com/relay/")
+s=q}for(;;)switch(s){case 0:k=A.hp("https://portfolio-relay.darksider-05.workers.dev/")
 j=b===""?"Not Given":b
 i=t.N
 h=A.ad(["name",a,"email",j,"subject",c,"message",d],i,t.z)
