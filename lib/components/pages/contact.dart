@@ -350,7 +350,12 @@ class _ContactmeState extends State<Contactme> {
                             width: vw * 0.7,
                             height: vh * 0.6,
                             color: scheme.secondary,
-                            child: Center(child: Text(result ?? "")),
+                            child: Center(
+                              child: Text(
+                                result ?? "",
+                                style: TextStyle(color: scheme.onSecondary),
+                              ),
+                            ),
                           ),
                         ),
                       )
