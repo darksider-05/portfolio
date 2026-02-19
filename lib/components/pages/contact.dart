@@ -64,7 +64,10 @@ class _ContactmeState extends State<Contactme> {
     try {
       final response = await http.post(
         url,
-        headers: {"Content-Type": "application/json"},
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
         body: jsonEncode(data),
       );
 
