@@ -81710,7 +81710,7 @@ uH(a,b,c,d){return this.Xq(a,b,c,d)},
 Xq(a,b,c,d){var s=0,r=A.O(t.H),q=1,p=[],o=this,n,m,l,k,j,i,h,g
 var $async$uH=A.P(function(e,f){if(e===1){p.push(f)
 s=q}for(;;)switch(s){case 0:k=A.hq("https://portfolio-relay.darksider-05.workers.dev/")
-j=b===""?"":b
+j=b===""?"Not.given@gmail.com":b
 i=t.N
 h=A.ad(["name",a,"email",j,"message","Subject:  "+c+"\n\nmessage:  "+d],i,t.z)
 q=3
