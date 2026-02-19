@@ -49,7 +49,7 @@ class _ContactmeState extends State<Contactme> {
 
   Future<void> send(
     String name,
-    String? email,
+    String email,
     String subject,
     String message,
   ) async {
@@ -57,9 +57,11 @@ class _ContactmeState extends State<Contactme> {
 
     final Map<String, dynamic> data = {
       "name": name,
-      "email": email == "" ? "Not.given@gmail.com" : email,
       "message": "Subject:  $subject\n\nmessage:  $message",
     };
+    if (email.isNotEmpty) {
+      data["email"] = email;
+    }
 
     try {
       final response = await http.post(
