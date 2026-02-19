@@ -58,7 +58,7 @@ class _ContactmeState extends State<Contactme> {
     final Map<String, dynamic> data = {
       "name": name,
       "email": email == "" ? "Not Given" : email,
-      "message": "Subject:  $subject\n\n$message",
+      "message": "Subject:  $subject\n\nmessage:  $message",
     };
 
     try {
