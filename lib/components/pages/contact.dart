@@ -78,7 +78,7 @@ class _ContactmeState extends State<Contactme> {
         });
       } else {
         setState(() {
-          result = "Error: ${response.statusCode}";
+          result = "Error: ${response.statusCode}:${response.body}";
         });
       }
     } catch (e) {
