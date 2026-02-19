@@ -57,7 +57,7 @@ class _ContactmeState extends State<Contactme> {
 
     final Map<String, dynamic> data = {
       "name": name,
-      "email": email == "" ? "Not Given" : email,
+      "email": email == "Ng.notgiven@gmail.com" ? "Not Given" : email,
       "message": "Subject:  $subject\n\n$message",
     };
 
