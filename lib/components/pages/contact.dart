@@ -78,7 +78,11 @@ class _ContactmeState extends State<Contactme> {
         });
       } else {
         setState(() {
-          result = "Error: ${response.statusCode}:${response.body}";
+          if (response.statusCode == 423) {
+            result = "the server has been used recently";
+          } else {
+            result = "Error: ${response.statusCode}:${response.body}";
+          }
         });
       }
     } catch (e) {
