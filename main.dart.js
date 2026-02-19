@@ -81773,8 +81773,9 @@ A.aga.prototype={
 $0(){this.a.w=" thank you for your time. the message was sent successfully."},
 $S:0}
 A.agb.prototype={
-$0(){var s=this.b
-this.a.w="Error: "+s.b+":"+A.aMd(A.aK3(s.e)).fm(s.w)},
+$0(){var s=this.b,r=s.b,q=this.a
+if(r===423)q.w="the server has been used recently"
+else q.w="Error: "+r+":"+A.aMd(A.aK3(s.e)).fm(s.w)},
 $S:0}
 A.agc.prototype={
 $0(){this.a.w="Exception: "+A.j(this.b)},
