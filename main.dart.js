@@ -81645,7 +81645,7 @@ j=b==="Ng.notgiven@gmail.com"?"Not Given":b
 i=t.N
 h=A.ad(["name",a,"email",j,"message","Subject:  "+c+"\n\n"+d],i,t.z)
 q=3
-j=A.ad(["Content-Type","application/json"],i,i)
+j=A.ad(["Content-Type","application/json","Accept","application/json"],i,i)
 s=6
 return A.Q(A.aMY(k,B.cr.Ta(h,null),j),$async$uH)
 case 6:n=f
