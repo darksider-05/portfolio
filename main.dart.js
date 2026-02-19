@@ -81643,7 +81643,7 @@ var $async$uH=A.P(function(e,f){if(e===1){p.push(f)
 s=q}for(;;)switch(s){case 0:k=A.hp("https://portfolio-relay.darksider-05.workers.dev/")
 j=b===""?"Not Given":b
 i=t.N
-h=A.ad(["name",a,"email",j,"subject",c,"message",d],i,t.z)
+h=A.ad(["name",a,"email",j,"message","Subject:  "+c+"\n\n"+d],i,t.z)
 q=3
 j=A.ad(["Content-Type","application/json"],i,i)
 s=6
