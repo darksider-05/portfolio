@@ -212,6 +212,7 @@ class _ContactmeState extends State<Contactme> {
                       child: Center(
                         child: Text(
                           "Rules:\n\nAll fields except the email need to be filled\n\nPlease use a consistent name so I recognize repeat senders\n\nThe server will only accept one message about every hour.\n\nThis includes other people's messages also.",
+                          style: TextStyle(color: scheme.onSecondary),
                         ),
                       ),
                     ),
