@@ -30,10 +30,8 @@ class _TCState extends State<TC> {
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.secondary,
             borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(31),
-              bottomRight: nav.currentpage == 3 && vw > 450
-                  ? Radius.zero
-                  : const Radius.circular(31),
+              bottomLeft: const Radius.circular(31),
+              bottomRight: const Radius.circular(31),
             ),
           ),
           width: vw > 450 ? vw * 0.8 : vw,
@@ -48,7 +46,8 @@ class _TCState extends State<TC> {
                 place: "l",
                 f: nav.set1,
                 target: 1,
-                current: nav.currentpage,
+                nav: nav,
+                selector: false,
               ),
               PageName(
                 name: "About me",
@@ -57,7 +56,8 @@ class _TCState extends State<TC> {
                 place: "m",
                 f: nav.set2,
                 target: 2,
-                current: nav.currentpage,
+                nav: nav,
+                selector: false,
               ),
               PageName(
                 name: "My projects",
@@ -66,7 +66,8 @@ class _TCState extends State<TC> {
                 place: "m",
                 f: nav.set3,
                 target: 3,
-                current: nav.currentpage,
+                nav: nav,
+                selector: true,
               ),
               PageName(
                 name: "Contact me",
@@ -75,7 +76,8 @@ class _TCState extends State<TC> {
                 place: "r",
                 f: nav.set4,
                 target: 4,
-                current: nav.currentpage,
+                nav: nav,
+                selector: false,
               ),
             ],
           ),

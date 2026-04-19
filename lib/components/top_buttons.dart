@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/settings/providers.dart';
 
 Color lighten(Color color, [double amount = 0.12]) {
   final hsl = HSLColor.fromColor(color);
@@ -13,7 +14,8 @@ class PageName extends StatefulWidget {
   final String place;
   final VoidCallback f;
   final int target;
-  final int current;
+  final Nav nav;
+  final bool selector;
 
   const PageName({
     super.key,
@@ -23,7 +25,8 @@ class PageName extends StatefulWidget {
     required this.place,
     required this.f,
     required this.target,
-    required this.current,
+    required this.nav,
+    required this.selector,
   });
 
   @override
@@ -37,7 +40,7 @@ class _TitleWidgetState extends State<PageName> {
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
 
-    final bool isSelected = widget.current == widget.target;
+    final bool isSelected = widget.nav.currentpage == widget.target;
 
     final Color baseColor = isSelected
         ? scheme.primary
@@ -52,15 +55,28 @@ class _TitleWidgetState extends State<PageName> {
         : baseColor;
 
     return MouseRegion(
-      onEnter: (_) => setState(() => isHovered = true),
-      onExit: (_) => setState(() => isHovered = false),
+      onEnter: (_) => setState(() {
+        if (!isHovered) isHovered = true;
+        if (widget.selector) {
+          if (!widget.nav.selFlag) {
+            widget.nav.selecting();
+          }
+        } else {
+          if (widget.nav.selFlag) {
+            widget.nav.done();
+          }
+        }
+      }),
+      onExit: (_) => setState(() {
+        if (isHovered) isHovered = false;
+      }),
       child: InkWell(
         onTap: widget.f,
         borderRadius: BorderRadius.only(
           bottomLeft: widget.place == "l"
               ? const Radius.circular(30)
               : Radius.zero,
-          bottomRight: widget.place == "r" && widget.current != 3
+          bottomRight: widget.place == "r"
               ? const Radius.circular(30)
               : widget.width > 450
               ? Radius.zero
@@ -76,16 +92,8 @@ class _TitleWidgetState extends State<PageName> {
                   ? const Radius.circular(30)
                   : Radius.zero,
               bottomRight: widget.place == "r"
-                  ? widget.current == 3
-                        ? widget.width > 450
-                              ? Radius.zero
-                              : const Radius.circular(30)
-                        : const Radius.circular(30)
+                  ? const Radius.circular(30)
                   : Radius.zero,
-              // ? const Radius.circular(30)
-              //: widget.width > 450
-              //? Radius.zero
-              //: const Radius.circular(30),
             ),
           ),
           width: widget.width > 450 ? widget.width * 0.8 / 4 : widget.width / 4,

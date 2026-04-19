@@ -3,6 +3,20 @@ import 'package:flutter/material.dart';
 class Nav extends ChangeNotifier {
   int currentpage = 1;
   int proj = 0;
+  bool _projSelectionFlag = false;
+
+  /// the flag for the selection menu
+  bool get selFlag => _projSelectionFlag;
+
+  /// the method to call to open the selection menu
+  void selecting() {
+    _projSelectionFlag = true;
+  }
+
+  /// the method to call when selection of the project is done
+  void done() {
+    _projSelectionFlag = false;
+  }
 
   void set1() {
     if (currentpage != 1) currentpage = 1;

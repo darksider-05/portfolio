@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/components/proj_selector.dart';
 import 'package:portfolio/settings/defaults.dart';
 import 'package:portfolio/settings/jsonload.dart';
 import 'package:portfolio/settings/providers.dart';
@@ -17,7 +18,6 @@ class _MyProjectsState extends State<MyProjects> {
     var defs = Defaults(context);
     var vw = defs.vw();
     var vh = defs.vh();
-    final scheme = Theme.of(context).colorScheme;
     final json = context.watch<Jsonload>();
     final List data = json.data?["myprojects"];
     final nav = context.watch<Nav>();
@@ -39,110 +39,8 @@ class _MyProjectsState extends State<MyProjects> {
 
     return Stack(
       children: [
-        vw > 450
-            ? Positioned(
-                right: 0,
-                child: Align(
-                  alignment: Alignment.centerRight,
-                  child: SizedBox(
-                    height: vh,
-                    child: SingleChildScrollView(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: List.generate(
-                          data.length,
-
-                          //itemCount: data.length,
-                          (index) => Listener(
-                            behavior: HitTestBehavior.translucent,
-                            ///////////onPointerHover: (_) => nav.setx(index),
-                            onPointerDown: (_) => nav.setx(index),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: (nav.proj == index)
-                                    ? scheme.primary
-                                    : scheme.secondary,
-                                border: Border(left: BorderSide(width: 0.25)),
-                              ),
-
-                              width: vw * 0.1,
-                              height: vh * 0.095,
-                              child: Center(
-                                child: Text(
-                                  data[index][0],
-                                  style: TextStyle(
-                                    color: (nav.proj == index)
-                                        ? scheme.onPrimary
-                                        : scheme.onSecondary,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              )
-            : Positioned(
-                top: vh * 0.11,
-                child: SizedBox(
-                  width: vw,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                        onPressed: () =>
-                            nav.setx(((nav.proj - 1) % data.length).toInt()),
-                        icon: Icon(Icons.arrow_back),
-                      ),
-                      SizedBox(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: List.generate(
-                            3,
-                            (index) => Container(
-                              color:
-                                  (nav.proj ==
-                                      (nav.proj - 1 + index) % data.length)
-                                  ? scheme.primary
-                                  : scheme.secondary,
-                              width: vw * 0.7 / 3,
-                              height: vh * 0.08,
-                              child: Center(
-                                child: Text(
-                                  data[(nav.proj - 1 + index) % data.length][0],
-                                  style: TextStyle(
-                                    fontSize: 13,
-                                    color:
-                                        (nav.proj ==
-                                            (nav.proj - 1 + index) %
-                                                data.length)
-                                        ? scheme.onPrimary
-                                        : scheme.onSecondary,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () =>
-                            nav.setx(((nav.proj + 1) % data.length).toInt()),
-                        icon: Transform.flip(
-                          flipX: true,
-                          child: Icon(Icons.arrow_back),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-
         Positioned(
-          top: vw > 450 ? vh * 0.1 : vh * 0.2,
+          top: vw > 450 ? vh * 0.025 : vh * 0.15,
           bottom: vh * 0.01 + 5,
           child: SizedBox(
             width: vw > 450 ? vw * 0.82 : vw,
@@ -205,6 +103,8 @@ class _MyProjectsState extends State<MyProjects> {
             ),
           ),
         ),
+
+        vw > 450 ? SelectorW() : SelectorN(),
       ],
     );
   }
