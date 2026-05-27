@@ -5,17 +5,21 @@ class Nav extends ChangeNotifier {
   int proj = 0;
   bool _projSelectionFlag = false;
 
+  ScrollController sc = ScrollController();
+
   /// the flag for the selection menu
   bool get selFlag => _projSelectionFlag;
 
   /// the method to call to open the selection menu
   void selecting() {
     _projSelectionFlag = true;
+    notifyListeners();
   }
 
   /// the method to call when selection of the project is done
   void done() {
     _projSelectionFlag = false;
+    notifyListeners();
   }
 
   void set1() {

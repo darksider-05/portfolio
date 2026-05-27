@@ -54,7 +54,11 @@ class MyHomePage extends StatelessWidget {
                 Definer(),
               ],
             )
-          : Center(child: Text("Loading...")),
+          : Center(
+              child: Row(
+                children: [CircularProgressIndicator(), Text("Loading...")],
+              ),
+            ),
     );
   }
 }

@@ -21,7 +21,7 @@ class _MyProjectsState extends State<MyProjects> {
     final json = context.watch<Jsonload>();
     final List data = json.data?["myprojects"];
     final nav = context.watch<Nav>();
-    final ScrollController sc = ScrollController();
+    final ScrollController sc = nav.sc;
     List imagedata = vw >= 1200
         ? data[nav.proj][2][0]
         : vw >= 900
@@ -40,11 +40,13 @@ class _MyProjectsState extends State<MyProjects> {
     return Stack(
       children: [
         Positioned(
-          top: vw > 450 ? vh * 0.025 : vh * 0.15,
+          top: vw > 450
+              ? vh * (((data.length / 4).ceil() * 0.04) + 0.1)
+              : vh * (((data.length / 2).ceil() * 0.04) + 0.1),
           bottom: vh * 0.01 + 5,
           child: SizedBox(
-            width: vw > 450 ? vw * 0.82 : vw,
-            height: vw > 450 ? vh * 0.9 : vh * 0.8,
+            width: vw > 450 ? vw : vw,
+            height: vw > 450 ? vh * 0.8 : vh * 0.8,
             child: Scrollbar(
               controller: sc,
 
