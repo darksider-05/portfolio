@@ -3,6 +3,7 @@ import 'package:portfolio/components/bottom_gradient.dart';
 import 'package:portfolio/components/frame.dart';
 import 'package:portfolio/components/gradient_specifier.dart';
 import 'package:portfolio/components/top_controller.dart';
+import 'package:portfolio/settings/defaults.dart';
 import 'package:portfolio/settings/gradient.dart';
 import 'package:portfolio/settings/jsonload.dart';
 import 'package:portfolio/settings/providers.dart';
@@ -44,6 +45,9 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final data = Provider.of<Jsonload>(context);
+    var defs = Defaults(context);
+    var vw = defs.vw();
+    var vh = defs.vh();
     return Scaffold(
       body: data.isloading == Loadstate.finished
           ? Stack(
@@ -55,8 +59,12 @@ class MyHomePage extends StatelessWidget {
               ],
             )
           : Center(
-              child: Row(
-                children: [CircularProgressIndicator(), Text("Loading...")],
+              child: SizedBox(
+                width: vw,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [CircularProgressIndicator(), Text("  Loading...")],
+                ),
               ),
             ),
     );
