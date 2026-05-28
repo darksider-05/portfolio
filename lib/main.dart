@@ -47,7 +47,6 @@ class MyHomePage extends StatelessWidget {
     final data = Provider.of<Jsonload>(context);
     var defs = Defaults(context);
     var vw = defs.vw();
-    var vh = defs.vh();
     return Scaffold(
       body: data.isloading == Loadstate.finished
           ? Stack(

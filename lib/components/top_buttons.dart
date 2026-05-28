@@ -68,7 +68,10 @@ class _TitleWidgetState extends State<PageName> {
         }
       }),
       onExit: (_) => setState(() {
-        if (isHovered) isHovered = false;
+        if (isHovered) {
+          isHovered = false;
+          widget.nav.done();
+        }
       }),
       child: InkWell(
         onTap: widget.f,

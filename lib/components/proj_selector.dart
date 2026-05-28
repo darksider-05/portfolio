@@ -26,42 +26,51 @@ class _SelectorWState extends State<SelectorW> {
     var vw = defs.vw();
     var vh = defs.vh();
 
-    return Positioned(
-      top: vh * 0.1,
-      left: vw * 0.05,
-      child: Container(
-        width: vw * 0.9,
-        height: vh * ((data.length / 4).ceil() * 0.04),
-        decoration: BoxDecoration(
-          color: scheme.primary,
-          borderRadius: BorderRadius.all(Radius.circular(30)),
-        ),
-        padding: EdgeInsets.only(top: 4),
+    return nav.selFlag
+        ? Positioned(
+            top: vh * 0.1,
+            left: vw * 0.05,
+            child: MouseRegion(
+              onEnter: (event) => nav.selecting(),
+              onExit: (event) => nav.done(),
+              child: Container(
+                width: vw * 0.9,
+                height: vh * ((data.length / 4).ceil() * 0.04),
+                decoration: BoxDecoration(
+                  color: scheme.primary,
+                  borderRadius: BorderRadius.all(Radius.circular(30)),
+                ),
+                padding: EdgeInsets.only(top: 4),
 
-        child: ListView.builder(
-          itemCount: (data.length / 4).ceil(),
-          itemBuilder: (context, index1) => Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: List.generate(
-              min(data.length - (index1 * 4), 4),
-              (index2) => GestureDetector(
-                onTap: () {
-                  nav.setx(index1 * 4 + index2);
-                  nav.done();
-                  sc.jumpTo(0);
-                },
-                child: Center(
-                  child: Text(
-                    data[index1 * 4 + index2][0],
-                    style: TextStyle(color: scheme.onPrimary, fontSize: 18),
+                child: ListView.builder(
+                  itemCount: (data.length / 4).ceil(),
+                  itemBuilder: (context, index1) => Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: List.generate(
+                      min(data.length - (index1 * 4), 4),
+                      (index2) => GestureDetector(
+                        onTap: () {
+                          nav.setx(index1 * 4 + index2);
+                          nav.done();
+                          sc.jumpTo(0);
+                        },
+                        child: Center(
+                          child: Text(
+                            data[index1 * 4 + index2][0],
+                            style: TextStyle(
+                              color: scheme.onPrimary,
+                              fontSize: 18,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ),
-      ),
-    );
+          )
+        : Container();
   }
 }
 
@@ -83,108 +92,119 @@ class _SelectorNState extends State<SelectorN> {
     var defs = Defaults(context);
     var vw = defs.vw();
     var vh = defs.vh();
+    const duration = 300;
 
-    if (!nav.selFlag) {
-      return Positioned(
-        top: vh * 0.1,
-        left: vw * 0.05,
-        child: GestureDetector(
-          onTap: () => nav.selecting(),
-          child: Container(
-            width: vw * 0.9,
-            height: vh * 0.05,
-            decoration: BoxDecoration(
-              color: scheme.primary,
-              borderRadius: BorderRadius.all(Radius.circular(30)),
-            ),
+    return Positioned(
+      top: vh * 0.1,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(width: vw),
+          GestureDetector(
+            onTap: () => !nav.selFlag ? nav.selecting() : nav.done(),
+            child: AnimatedSwitcher(
+              duration: Duration(milliseconds: duration),
+              child: !nav.selFlag
+                  ? Container(
+                      key: ValueKey(1),
+                      width: vw * 0.9,
+                      height: vh * 0.05,
+                      decoration: BoxDecoration(
+                        color: scheme.primary,
+                        borderRadius: BorderRadius.all(Radius.circular(30)),
+                      ),
 
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Icon(Icons.arrow_downward, color: scheme.onPrimary),
-                Text(
-                  "Press to select the project",
-                  style: TextStyle(color: scheme.onPrimary),
-                ),
-                Icon(Icons.arrow_downward, color: scheme.onPrimary),
-              ],
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Icon(Icons.arrow_downward, color: scheme.onPrimary),
+
+                          Text(
+                            "Press to select the project",
+
+                            style: TextStyle(color: scheme.onPrimary),
+                          ),
+
+                          Icon(Icons.arrow_downward, color: scheme.onPrimary),
+                        ],
+                      ),
+                    )
+                  :
+                    //////////////////////////////////////////////////////////
+                    Container(
+                      key: ValueKey(2),
+                      width: vw * 0.9,
+                      height: vh * 0.05,
+                      decoration: BoxDecoration(
+                        color: scheme.primary,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30),
+                          topRight: Radius.circular(30),
+                        ),
+                      ),
+
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Icon(Icons.arrow_upward, color: scheme.onPrimary),
+
+                          Text(
+                            "Press to cancel selecting the project",
+
+                            style: TextStyle(color: scheme.onPrimary),
+                          ),
+
+                          Icon(Icons.arrow_upward, color: scheme.onPrimary),
+                        ],
+                      ),
+                    ),
             ),
           ),
-        ),
-      );
-    } else {
-      return Positioned(
-        top: vh * 0.1,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(width: vw),
-            GestureDetector(
-              onTap: () => nav.done(),
-              child: Container(
-                width: vw * 0.9,
-                height: vh * 0.05,
-                decoration: BoxDecoration(
-                  color: scheme.primary,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30),
-                  ),
-                ),
-
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Icon(Icons.arrow_upward, color: scheme.onPrimary),
-                    Text(
-                      "Press to cancel selecting the project",
-                      style: TextStyle(color: scheme.onPrimary),
+          AnimatedSwitcher(
+            duration: Duration(milliseconds: duration),
+            child: !nav.selFlag
+                ? Container(key: ValueKey(3))
+                : Container(
+                    key: ValueKey(4),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(30),
+                        bottomRight: Radius.circular(30),
+                      ),
+                      color: scheme.primary,
                     ),
-                    Icon(Icons.arrow_upward, color: scheme.onPrimary),
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(30),
-                  bottomRight: Radius.circular(30),
-                ),
-                color: scheme.primary,
-              ),
-              padding: EdgeInsets.only(top: vh * 0.02),
-              width: vw * 0.9,
-              height: vh * ((data.length / 2).ceil() * 0.04),
-              child: ListView.builder(
-                itemCount: (data.length / 2).ceil(),
-                itemBuilder: (context, index1) => Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: List.generate(
-                    min(data.length - (index1 * 2), 2),
-                    (index2) => GestureDetector(
-                      onTap: () {
-                        nav.setx(index1 * 2 + index2);
-                        nav.done();
-                        sc.jumpTo(0);
-                      },
-                      child: Center(
-                        child: Text(
-                          data[index1 * 2 + index2][0],
-                          style: TextStyle(
-                            color: scheme.onPrimary,
-                            fontSize: 16,
+                    padding: EdgeInsets.only(top: vh * 0.02),
+                    width: vw * 0.9,
+                    height: vh * ((data.length / 2).ceil() * 0.04),
+                    child: ListView.builder(
+                      itemCount: (data.length / 2).ceil(),
+                      itemBuilder: (context, index1) => Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: List.generate(
+                          min(data.length - (index1 * 2), 2),
+                          (index2) => GestureDetector(
+                            onTap: () {
+                              nav.setx(index1 * 2 + index2);
+                              nav.done();
+                              sc.jumpTo(0);
+                            },
+                            child: Center(
+                              child: Text(
+                                data[index1 * 2 + index2][0],
+                                style: TextStyle(
+                                  color: scheme.onPrimary,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      );
-    }
+          ),
+        ],
+      ),
+    );
   }
 }
