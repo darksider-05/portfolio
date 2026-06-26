@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/components/bottom_gradient.dart';
 import 'package:portfolio/components/frame.dart';
-import 'package:portfolio/components/gradient_specifier.dart';
 import 'package:portfolio/components/top_controller.dart';
 import 'package:portfolio/settings/defaults.dart';
-import 'package:portfolio/settings/gradient.dart';
 import 'package:portfolio/settings/jsonload.dart';
 import 'package:portfolio/settings/providers.dart';
 import 'package:portfolio/settings/theme.dart';
@@ -17,7 +15,6 @@ void main() {
         ChangeNotifierProvider(create: (_) => Nav()),
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider(create: (_) => Jsonload()),
-        ChangeNotifierProvider(create: (_) => Grad()),
       ],
       child: MyApp(),
     ),
@@ -54,7 +51,6 @@ class MyHomePage extends StatelessWidget {
                 Wide(),
                 Line(),
                 Positioned(top: 0, child: TC()),
-                Definer(),
               ],
             )
           : Center(
