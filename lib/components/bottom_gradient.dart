@@ -90,8 +90,6 @@ class _LineState extends State<Line> {
 
   @override
   Widget build(BuildContext context) {
-    print(identical(previous, next));
-
     var defs = Defaults(context);
     var vw = defs.vw();
     var vh = defs.vh();
@@ -103,13 +101,12 @@ class _LineState extends State<Line> {
         width: vw,
         height: vh * 0.01,
         decoration: BoxDecoration(
-          color: (nxt % 2) == 0 ? Colors.red : Colors.blue,
-          //gradient: next,
+          gradient: next,
           boxShadow: [
             BoxShadow(
               blurRadius: 12,
               spreadRadius: 2,
-              //color: next.colors[2].withAlpha(153),
+              color: next.colors[2].withAlpha(153),
             ),
           ],
         ),
