@@ -107,6 +107,7 @@ class _LineState extends State<Line> with SingleTickerProviderStateMixin {
 
   @override
   void dispose() {
+    _controller.dispose();
     timer?.cancel();
     super.dispose();
   }
