@@ -10,7 +10,9 @@ class Line extends StatefulWidget {
   State<Line> createState() => _LineState();
 }
 
-class _LineState extends State<Line> {
+class _LineState extends State<Line> with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+
   static List<LinearGradient> gradients = [
     LinearGradient(
       colors: [
@@ -73,13 +75,34 @@ class _LineState extends State<Line> {
     });
   }
 
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   timer = Timer.periodic(const Duration(milliseconds: 2000), (self) {
+  //     index = (index + 1) % 4;
+  //     setpage(index);
+  //   });
+  // }
+
   @override
   void initState() {
     super.initState();
-    timer = Timer.periodic(const Duration(milliseconds: 2000), (self) {
-      index = (index + 1) % 4;
-      setpage(index);
+
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    );
+
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        index = (index + 1) % gradients.length;
+        setpage(index);
+
+        _controller.forward(from: 0);
+      }
     });
+
+    _controller.forward();
   }
 
   @override
