@@ -94,6 +94,11 @@ class _LineState extends State<Line> with SingleTickerProviderStateMixin {
     );
 
     _controller.addStatusListener((status) {
+      debugPrint(
+        '${DateTime.now().toIso8601String()}  '
+        'status=$status  value=${_controller.value}',
+      );
+
       if (status == AnimationStatus.completed) {
         index = (index + 1) % gradients.length;
         setpage(index);
