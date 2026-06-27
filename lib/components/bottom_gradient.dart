@@ -96,45 +96,21 @@ class _LineState extends State<Line> {
 
     return Positioned(
       bottom: 0,
-      child: TweenAnimationBuilder<LinearGradient>(
-        tween: GradientTween(begin: previous, end: next),
+      child: AnimatedContainer(
         duration: const Duration(milliseconds: 1500),
-        curve: Curves.easeOut,
-        builder: (context, animGradient, _) {
-          final shadowColor = animGradient.colors[2];
-          return Container(
-            width: vw,
-            height: vh * 0.01,
-            decoration: BoxDecoration(
-              gradient: animGradient,
-              boxShadow: [
-                BoxShadow(
-                  blurRadius: 12,
-                  spreadRadius: 2,
-                  color: shadowColor.withAlpha(153),
-                ),
-              ],
+        width: vw,
+        height: vh * 0.01,
+        decoration: BoxDecoration(
+          gradient: next,
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 12,
+              spreadRadius: 2,
+              color: next.colors[2].withAlpha(153),
             ),
-          );
-        },
+          ],
+        ),
       ),
-    );
-  }
-}
-
-class GradientTween extends Tween<LinearGradient> {
-  GradientTween({required LinearGradient begin, required LinearGradient end})
-    : super(begin: begin, end: end);
-
-  @override
-  LinearGradient lerp(double t) {
-    return LinearGradient(
-      begin: begin!.begin,
-      end: begin!.end,
-      colors: List.generate(begin!.colors.length, (i) {
-        return Color.lerp(begin!.colors[i], end!.colors[i], t)!;
-      }),
-      stops: begin!.stops,
     );
   }
 }

@@ -21,11 +21,7 @@ jobs:
           channel: stable
 
       - run: flutter pub get
-      - run: flutter build web --release
-
-      # 🔧 Auto-fix base href for GitHub Pages
-      - name: Fix base href for GitHub Pages
-        run: sed -i 's|<base href="/">|<base href="/portfolio/">|' build/web/index.html
+      - run: flutter build web --release --wasm --base-href /portfolio/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
