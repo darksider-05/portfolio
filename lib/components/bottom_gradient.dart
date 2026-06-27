@@ -11,7 +11,7 @@ class Line extends StatefulWidget {
 }
 
 class _LineState extends State<Line> {
-  static const List<LinearGradient> gradients = [
+  static List<LinearGradient> gradients = [
     LinearGradient(
       colors: [
         Color(0xFF2EC4B6),
@@ -101,7 +101,12 @@ class _LineState extends State<Line> {
         width: vw,
         height: vh * 0.01,
         decoration: BoxDecoration(
-          gradient: next,
+          gradient: LinearGradient(
+            colors: List.of(next.colors),
+            begin: next.begin,
+            end: next.end,
+            stops: next.stops,
+          ),
           boxShadow: [
             BoxShadow(
               blurRadius: 12,
