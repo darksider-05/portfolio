@@ -46,17 +46,17 @@
             "Zero-config LAN text sharing",
             [
                 [
-                    "assets/my projects/LT_L.jpeg",
+                    "assets/my_projects/LT_L.jpeg",
                     1200,
                     675
                 ],
                 [
-                    "assets/my projects/LT_M.jpeg",
+                    "assets/my_projects/LT_M.jpeg",
                     900,
                     506
                 ],
                 [
-                    "assets/my projects/LT_S.jpeg",
+                    "assets/my_projects/LT_S.jpeg",
                     390,
                     844
                 ]
@@ -78,17 +78,17 @@
             "Animated flip clock UI",
             [
                 [
-                    "assets/my projects/FC_L.jpeg",
+                    "assets/my_projects/FC_L.jpeg",
                     1200,
                     675
                 ],
                 [
-                    "assets/my projects/FC_M.jpeg",
+                    "assets/my_projects/FC_M.jpeg",
                     900,
                     506
                 ],
                 [
-                    "assets/my projects/FC_S.jpeg",
+                    "assets/my_projects/FC_S.jpeg",
                     390,
                     844
                 ]
@@ -100,7 +100,7 @@
                 "Design & UX Considerations\nThe design philosophy focuses on clarity, rhythm, and balance. The flip animation creates visual continuity as time changes, allowing users to intuitively track updates without distraction. Layout decisions are driven by device orientation, ensuring the clock remains visually balanced whether viewed vertically or horizontally. Spacing, typography, and motion are carefully tuned for at-a-glance legibility.",
                 "Technical Approach\nThe application is structured around a clear separation of presentation, state management, and theming concerns. Time and date updates are handled centrally and propagated consistently throughout the interface. This architecture keeps the UI reactive while remaining easy to reason about during continuous runtime. The overall design prioritizes predictability and simplicity over feature complexity.",
                 "Design Strategy\nResponsiveness is treated as a core architectural principle rather than an afterthought. The layout dynamically adjusts based on orientation, allowing shared components to rearrange without duplication. This ensures consistency across devices and screen sizes while keeping the codebase clean and maintainable.",
-                "Challenges & Solutions\nOne challenge involved reliably detecting device orientation, as width and height values can behave inconsistently during transitions in Flutter. I developed a custom solution that evolved into a reusable package I now include in most of my projects.\n\nAnother challenge was designing a provider class capable of self-updating without placing unnecessary strain on the UI thread.\n\nI also developed a centralized theming system that governs the entire application rather than relying solely on Flutter's built-in theming. This approach later became a foundation for theming strategies in my subsequent projects.",
+                "Challenges & Solutions\nOne challenge involved reliably detecting device orientation, as width and height values can behave inconsistently during transitions in Flutter. I developed a custom solution that evolved into a reusable package I now include in most of my_projects.\n\nAnother challenge was designing a provider class capable of self-updating without placing unnecessary strain on the UI thread.\n\nI also developed a centralized theming system that governs the entire application rather than relying solely on Flutter's built-in theming. This approach later became a foundation for theming strategies in my subsequent projects.",
                 "What I Learned\nBuilding Flip Clock strengthened my ability to create interfaces that respond gracefully to any screen size or orientation. The project improved my understanding of continuously updating interfaces and reinforced best practices for maintaining clean, predictable state management over time. I also gained experience designing reusable global data and systems that can be leveraged across multiple applications.",
                 "Links\nThe project's source code and latest release are available on GitHub."
             ]
@@ -110,17 +110,17 @@
             "Game logic + UX balance",
             [
                 [
-                    "assets/my projects/MS_L.jpeg",
+                    "assets/my_projects/MS_L.jpeg",
                     1200,
                     675
                 ],
                 [
-                    "assets/my projects/MS_M.jpeg",
+                    "assets/my_projects/MS_M.jpeg",
                     900,
                     506
                 ],
                 [
-                    "assets/my projects/MS_S.jpeg",
+                    "assets/my_projects/MS_S.jpeg",
                     390,
                     844
                 ]
@@ -142,17 +142,17 @@
             "Mobile client version of a team project",
             [
                 [
-                    "assets/my projects/EV1.jpeg",
+                    "assets/my_projects/EV1.jpeg",
                     390,
                     844
                 ],
                 [
-                    "assets/my projects/EV1.jpeg",
+                    "assets/my_projects/EV1.jpeg",
                     390,
                     844
                 ],
                 [
-                    "assets/my projects/EV2.jpeg",
+                    "assets/my_projects/EV2.jpeg",
                     390,
                     844
                 ]
@@ -174,17 +174,17 @@
             "Terminal folder navigation tool",
             [
                 [
-                    "assets/my projects/CP.jpeg",
+                    "assets/my_projects/CP.jpeg",
                     1200,
                     675
                 ],
                 [
-                    "assets/my projects/CP.jpeg",
+                    "assets/my_projects/CP.jpeg",
                     900,
                     506
                 ],
                 [
-                    "assets/my projects/CP.jpeg",
+                    "assets/my_projects/CP.jpeg",
                     390,
                     219
                 ]

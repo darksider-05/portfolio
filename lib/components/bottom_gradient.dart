@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:portfolio/settings/defaults.dart';
 
@@ -66,8 +64,6 @@ class _LineState extends State<Line> with SingleTickerProviderStateMixin {
   LinearGradient get previous => gradients[pre];
   LinearGradient get next => gradients[nxt];
 
-  Timer? timer;
-
   void setpage(int target) {
     setState(() {
       pre = nxt;
@@ -75,18 +71,19 @@ class _LineState extends State<Line> with SingleTickerProviderStateMixin {
     });
   }
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   timer = Timer.periodic(const Duration(milliseconds: 2000), (self) {
-  //     index = (index + 1) % 4;
-  //     setpage(index);
-  //   });
-  // }
-
   @override
   void initState() {
     super.initState();
+
+    final disableAnimations = WidgetsBinding
+        .instance
+        .platformDispatcher
+        .accessibilityFeatures
+        .disableAnimations;
+
+    if (disableAnimations) {
+      return; // Keep the initial gradient forever.
+    }
 
     _controller = AnimationController(
       vsync: this,
@@ -94,11 +91,6 @@ class _LineState extends State<Line> with SingleTickerProviderStateMixin {
     );
 
     _controller.addStatusListener((status) {
-      debugPrint(
-        '${DateTime.now().toIso8601String()}  '
-        'status=$status  value=${_controller.value}',
-      );
-
       if (status == AnimationStatus.completed) {
         index = (index + 1) % gradients.length;
         setpage(index);
@@ -113,7 +105,7 @@ class _LineState extends State<Line> with SingleTickerProviderStateMixin {
   @override
   void dispose() {
     _controller.dispose();
-    timer?.cancel();
+
     super.dispose();
   }
 
