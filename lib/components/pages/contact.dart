@@ -99,7 +99,7 @@ class _ContactmeState extends State<Contactme> {
     var defs = Defaults(context);
     var vw = defs.vw();
     var vh = defs.vh();
-    var wid = vw > 450 ? vw * 0.4 : vw * 0.3;
+    var wid = vw > 800 ? vw * 0.4 : vw * 0.3;
     var hei = vh * 0.05;
     final scheme = Theme.of(context).colorScheme;
 
@@ -107,10 +107,11 @@ class _ContactmeState extends State<Contactme> {
       margin: EdgeInsets.only(top: vh * 0.1),
       child: Stack(
         children: [
-          SizedBox(
+          Container(
+            padding: EdgeInsets.only(top: vh * 0.05),
             width: vw,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               spacing: vh * 0.025,
               children: [
@@ -168,7 +169,7 @@ class _ContactmeState extends State<Contactme> {
                 ),
                 SizedBox(
                   width: vw * 0.6,
-                  height: vh * 0.4,
+                  height: vh * 0.2,
                   child: Align(
                     alignment: Alignment.bottomCenter,
                     child: TextField(

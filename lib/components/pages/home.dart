@@ -94,7 +94,7 @@ class Textpart extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Transform.translate(
-            offset: Offset(0, -vh * 0.2),
+            offset: Offset(0, -vh * 0.3),
             child: Container(
               color: Colors.transparent,
               child: Center(

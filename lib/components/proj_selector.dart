@@ -29,12 +29,12 @@ class _SelectorWState extends State<SelectorW> {
     return nav.selFlag
         ? Positioned(
             top: vh * 0.1,
-            left: vw * 0.05,
+            left: vw * 0.1,
             child: MouseRegion(
               onEnter: (event) => nav.selecting(),
               onExit: (event) => nav.done(),
               child: Container(
-                width: vw * 0.9,
+                width: vw * 0.8,
                 height: vh * ((data.length / 4).ceil() * 0.04),
                 decoration: BoxDecoration(
                   color: scheme.primary,
@@ -89,6 +89,7 @@ class _SelectorNState extends State<SelectorN> {
     final ScrollController sc = nav.sc;
     final json = context.watch<Jsonload>();
     final List data = json.data?["myprojects"];
+    final ScrollController cont = ScrollController();
     var defs = Defaults(context);
     var vw = defs.vw();
     var vh = defs.vh();
@@ -107,11 +108,12 @@ class _SelectorNState extends State<SelectorN> {
               child: !nav.selFlag
                   ? Container(
                       key: ValueKey(1),
-                      width: vw * 0.9,
-                      height: vh * 0.05,
+                      width: vw * 0.8,
+                      //height: vh * 0.05,
+                      padding: EdgeInsets.only(bottom: 5, top: 5),
                       decoration: BoxDecoration(
                         color: scheme.primary,
-                        borderRadius: BorderRadius.all(Radius.circular(30)),
+                        borderRadius: BorderRadius.all(Radius.circular(5)),
                       ),
 
                       child: Row(
@@ -133,13 +135,14 @@ class _SelectorNState extends State<SelectorN> {
                     //////////////////////////////////////////////////////////
                     Container(
                       key: ValueKey(2),
-                      width: vw * 0.9,
-                      height: vh * 0.05,
+                      width: vw * 0.8,
+                      //height: vh * 0.05,
+                      padding: EdgeInsets.only(bottom: 5, top: 5),
                       decoration: BoxDecoration(
                         color: scheme.primary,
                         borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(30),
-                          topRight: Radius.circular(30),
+                          topLeft: Radius.circular(5),
+                          topRight: Radius.circular(5),
                         ),
                       ),
 
@@ -168,32 +171,46 @@ class _SelectorNState extends State<SelectorN> {
                     key: ValueKey(4),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(30),
-                        bottomRight: Radius.circular(30),
+                        bottomLeft: Radius.circular(5),
+                        bottomRight: Radius.circular(5),
                       ),
                       color: scheme.primary,
                     ),
                     padding: EdgeInsets.only(top: vh * 0.02),
-                    width: vw * 0.9,
+                    width: vw * 0.8,
                     height: vh * ((data.length / 2).ceil() * 0.04),
-                    child: ListView.builder(
-                      itemCount: (data.length / 2).ceil(),
-                      itemBuilder: (context, index1) => Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: List.generate(
-                          min(data.length - (index1 * 2), 2),
-                          (index2) => GestureDetector(
-                            onTap: () {
-                              nav.setx(index1 * 2 + index2);
-                              nav.done();
-                              sc.jumpTo(0);
-                            },
-                            child: Center(
-                              child: Text(
-                                data[index1 * 2 + index2][0],
-                                style: TextStyle(
-                                  color: scheme.onPrimary,
-                                  fontSize: 16,
+                    child: Scrollbar(
+                      interactive: true,
+                      thumbVisibility: true,
+                      controller: cont,
+                      child: ListView.builder(
+                        controller: cont,
+                        itemCount: (data.length / 2).ceil(),
+
+                        itemBuilder: (context, index1) => Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+                          children: List.generate(
+                            min(data.length - (index1 * 2), 2),
+
+                            (index2) => GestureDetector(
+                              onTap: () {
+                                nav.setx(index1 * 2 + index2);
+                                nav.done();
+                                sc.jumpTo(0);
+                              },
+
+                              child: Center(
+                                child: Container(
+                                  padding: EdgeInsets.only(top: 2, bottom: 2),
+
+                                  child: Text(
+                                    data[index1 * 2 + index2][0],
+                                    style: TextStyle(
+                                      color: scheme.onPrimary,
+                                      fontSize: 16,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
