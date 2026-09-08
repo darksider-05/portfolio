@@ -239,7 +239,10 @@ class _ContactmeState extends State<Contactme> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("The following fields must be filled:"),
+                            Text(
+                              "The following fields must be filled:",
+                              style: TextStyle(color: scheme.onSecondary),
+                            ),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: List.generate(

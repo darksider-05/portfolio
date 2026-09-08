@@ -45,6 +45,7 @@ class MyHomePage extends StatelessWidget {
     var defs = Defaults(context);
     var vw = defs.vw();
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: data.isloading == Loadstate.finished
           ? Stack(
               children: [

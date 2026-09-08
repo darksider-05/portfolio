@@ -106,7 +106,7 @@ class _MyProjectsState extends State<MyProjects> {
           ),
         ),
 
-        vw > 450 ? SelectorW() : SelectorN(),
+        vw > 800 ? SelectorW() : SelectorN(),
       ],
     );
   }
