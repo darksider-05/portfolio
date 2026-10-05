@@ -4,6 +4,7 @@ import 'package:portfolio/settings/defaults.dart';
 import 'package:portfolio/settings/jsonload.dart';
 import 'package:portfolio/settings/providers.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MyProjects extends StatefulWidget {
   const MyProjects({super.key});
@@ -36,6 +37,9 @@ class _MyProjectsState extends State<MyProjects> {
 
     bool hasimage = imagedata.isNotEmpty;
     List texts = data[nav.proj][3];
+    final Uri url = data[nav.proj][4] != null
+        ? Uri.parse(data[nav.proj][4])
+        : Uri.parse("");
 
     return Stack(
       children: [
@@ -89,13 +93,28 @@ class _MyProjectsState extends State<MyProjects> {
                         margin: EdgeInsets.symmetric(horizontal: vw * 0.03),
                         child: Column(
                           spacing: 100,
-                          children: List.generate(
-                            texts.length,
-                            (index) => Text(
-                              texts[index],
-                              style: TextStyle(fontSize: 20),
-                            ),
-                          ),
+                          children:
+                              List<Widget>.generate(
+                                texts.length,
+                                (index) => Text(
+                                  texts[index],
+                                  style: TextStyle(fontSize: 20),
+                                ),
+                              ) +
+                              [
+                                TextButton(
+                                  onPressed: () async {
+                                    await launchUrl(
+                                      url,
+                                      webOnlyWindowName: '_blank',
+                                    );
+                                  },
+                                  child: Text(
+                                    data[nav.proj][4] ?? "",
+                                    style: TextStyle(color: Colors.blue),
+                                  ), //TextButton(onPressed: (){htto}, child: child),
+                                ),
+                              ],
                         ),
                       ),
                     ),

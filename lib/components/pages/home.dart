@@ -1,5 +1,6 @@
+import 'dart:io';
 import 'dart:math';
-
+import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/settings/jsonload.dart';
 import 'package:provider/provider.dart';
@@ -114,6 +115,22 @@ class Textpart extends StatelessWidget {
               style: TextStyle(fontSize: 18.5, height: 1.8),
             ),
           ),
+          data["address"] != null
+              ? Container(
+                  alignment: Alignment.center,
+                  color: Colors.transparent,
+                  child: TextButton(
+                    onPressed: () async {
+                      final url = Uri.parse(data["address"]);
+                      await launchUrl(url, webOnlyWindowName: '_blank');
+                    },
+                    child: Text(
+                      data["address"] ?? "",
+                      style: TextStyle(color: Colors.blue),
+                    ), //TextButton(onPressed: (){htto}, child: child),
+                  ),
+                )
+              : Container(),
         ],
       ),
     );
