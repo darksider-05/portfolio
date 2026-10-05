@@ -5,7 +5,8 @@
         },
         "texts": {
             "title": "Introduction",
-            "description": "I am Ali Bahrkazemi, a third year computer engineering student at the university of Guilan. I am experienced in working with Flutter, and have already developed and released multiple apps, for multiple platforms. Even this webpage is made with Flutter. My app designs revolve around UX, mainly ease of use, and security. "
+            "description": "I am Ali Bahrkazemi, a third year computer engineering student at the university of Guilan. I am experienced in working with Flutter, and have already developed and released multiple apps, for multiple platforms. Even this webpage is made with Flutter. My app designs revolve around UX, mainly ease of use, and security. ",
+            "address": "https://github.com/darksider-05"
         }
     },
     "aboutme": {
@@ -39,7 +40,8 @@
                 "Challenges & Solutions\nOne of the main challenges was choosing the data structure. I had to choose something that was simple to use by anyone, while still being comfortable to work with. As a result, I chose to use json files since they are easy to view and edit.\n\nAnother challenge was to find a way to use images in different screen sizes, with the complication different orientations on smaller screen sizes. \nI came up with having three main sizes for screens: laptops, tablets, and phones. each has its own image, and the size of the image is given by the user for compatiblity with the image orientation.",
                 "What I Learned\nBuilding this project strengthened my ability to think in terms of architecture rather than isolated features. I gained experience designing systems that prioritize reuse, scalability, and clarity. The project also improved my decision-making skills, especially when choosing tools and trade-offs that supported long-term maintainability over short-term convenience.",
                 "Links\nThe complete source code is available on GitHub\nThis project is this very website that is being used as my own protfolio"
-            ]
+            ],
+            "https://github.com/darksider-05/portfolio"
         ],
         [
             "LiveText",
@@ -71,7 +73,8 @@
                 "Challenges & Solutions\nOne major challenge was implementing reliable local network discovery. Flutter currently has limited maturity in this area. While LAN broadcast discovery was an option, it required location permissions and negatively impacted user experience.\n\nI evaluated mDNS as an alternative, but the available solutions were not mature enough for production use. As a result, I designed a custom discovery protocol, which later aligned with what is commonly known as a Unicast Network Sweep approach.\n\nAnother challenge involved handling edge cases when retrieving the IP address of a phone acting as a hotspot host. Due to the lack of suitable packages, I implemented native platform code to solve this problem.",
                 "What I Learned\nThis project strengthened my ability to design systems under strict constraints with clearly defined priorities. I learned how limiting scope—such as enforcing single-client connections—can significantly improve reliability, predictability, and user experience.\n\nI also gained experience translating low-level technical decisions into tangible user benefits. Building Live Text required carefully balancing flexibility, security, and usability. These trade-offs improved my ability to reason about architecture holistically and communicate technical intent through product behavior rather than documentation alone.",
                 "Links\nThe full source code for Live Text is available on GitHub, where the latest release can be accessed."
-            ]
+            ],
+            "https://github.com/darksider-05/live_text"
         ],
         [
             "FlipClock",
@@ -103,7 +106,8 @@
                 "Challenges & Solutions\nOne challenge involved reliably detecting device orientation, as width and height values can behave inconsistently during transitions in Flutter. I developed a custom solution that evolved into a reusable package I now include in most of my_projects.\n\nAnother challenge was designing a provider class capable of self-updating without placing unnecessary strain on the UI thread.\n\nI also developed a centralized theming system that governs the entire application rather than relying solely on Flutter's built-in theming. This approach later became a foundation for theming strategies in my subsequent projects.",
                 "What I Learned\nBuilding Flip Clock strengthened my ability to create interfaces that respond gracefully to any screen size or orientation. The project improved my understanding of continuously updating interfaces and reinforced best practices for maintaining clean, predictable state management over time. I also gained experience designing reusable global data and systems that can be leveraged across multiple applications.",
                 "Links\nThe project's source code and latest release are available on GitHub."
-            ]
+            ],
+            "https://github.com/darksider-05/flip_clock"
         ],
         [
             "MineSweeper",
@@ -135,7 +139,8 @@
                 "Challenges & Solutions\nMinesweeper was the first Flutter application I developed, and it exposed many early-stage architectural and design mistakes. State management relied heavily on setState(), navigation patterns were inconsistent, and the UI was designed for a fixed screen size without responsiveness.\n\nA few months later, I rebuilt the entire application from scratch using the knowledge gained from subsequent projects. The new version introduced proper state structure, consistent navigation patterns, and fully responsive layouts across screen sizes.",
                 "What I Learned\nBuilding Minesweeper was a foundational step in my development career. The project forced me to research deeply, experiment with different approaches, and overcome practical implementation challenges. It also taught me the importance of revisiting and refactoring earlier work to apply improved architectural thinking and best practices.",
                 "Links\nThe project source code is available on GitHub, along with a live web version and downloadable release builds."
-            ]
+            ],
+            "https://github.com/darksider-05/mine_sweeper"
         ],
         [
             "Ecovision app",
@@ -167,7 +172,8 @@
                 "Challenges & Solutions\nOne challenge involved managing and organizing large volumes of heterogeneous data coming from multiple backend endpoints. To improve structure and maintainability, the backend was adjusted to expose dedicated endpoints per category. Additional safeguards were implemented on the client to ensure categories remained clearly separated and consistently presented.\n\nAnother challenge was ensuring multilingual content rendered naturally. Since only a limited number of languages use right-to-left text direction, I implemented lightweight detection by scanning text for RTL character ranges and dynamically adjusting layout direction when necessary.",
                 "What I Learned\nWorking on EcoVision App deepened my understanding of how large backend systems translate into user-facing products. I learned how architectural decisions made at the server level directly impact client complexity and user experience. The project strengthened my ability to reason about data contracts, API design, and the importance of system-wide consistency.\n\nI also gained valuable experience building applications within a collaborative, team-driven ecosystem. Coordinating client behavior with a shared backend reinforced the importance of clear interfaces and predictable data structures. This project strengthened my confidence in taking ownership of a critical subsystem while aligning with a larger codebase.",
                 "Links\nThe Android client source code and released application are available on GitHub."
-            ]
+            ],
+            "https://github.com/darksider-05/Ecovision-app"
         ],
         [
             "CodePanel",
@@ -199,7 +205,8 @@
                 "Challenges & Solutions\nOne challenge was designing an interface that remained intuitive while operating entirely within a terminal environment. I refined the menu structure and visual hierarchy to ensure navigation options were immediately understandable, and used color and spacing carefully to improve readability without overwhelming the user.\n\nAnother challenge involved handling platform-specific behavior consistently across operating systems. This was solved by isolating OS-dependent functionality behind abstraction layers, allowing the core navigation logic to remain identical regardless of environment.\n\nAdditional work focused on robust error handling and configuration validation to ensure the tool behaves predictably even when given invalid paths or incomplete configuration.",
                 "What I Learned\nThis project strengthened my understanding of designing tools with strict constraints and clear purpose. I learned how limiting scope—such as focusing exclusively on folder navigation—can significantly improve usability and performance. Building a CLI utility also reinforced the importance of clear feedback, defensive error handling, and predictable behavior in non-graphical interfaces.",
                 "Links\nThe complete source code is available on GitHub, where users can explore the project in detail and download releases for their platform."
-            ]
+            ],
+            "https://github.com/darksider-05/codepanel"
         ]
     ],
     "contactme": {}
