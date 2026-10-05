@@ -212,7 +212,7 @@ class _ContactmeState extends State<Contactme> {
                       color: scheme.secondary,
                       child: Center(
                         child: Text(
-                          "Rules:\n\nAll fields except the email need to be filled\n\nPlease use a consistent name so I recognize repeat senders\n\nThe server will only accept one message about every hour.\n\nThis includes other people's messages also.",
+                          "Rules:\n\nAll fields except the email need to be filled\n\nPlease use a consistent name so I recognize repeat senders\n\nThe server will only accept one message about every hour.\nThis includes other people's messages also.\nAfter some recent international changes, if the server couldn't be fetched, you might require a vpn to send the message",
                           style: TextStyle(color: scheme.onSecondary),
                         ),
                       ),
@@ -289,6 +289,10 @@ class _ContactmeState extends State<Contactme> {
                                 ),
                                 Text(
                                   "This includes other people's messages also.",
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                                Text(
+                                  "pleases wait until the 'sent' notification pops up.",
                                   style: TextStyle(color: Colors.black),
                                 ),
                                 Row(
