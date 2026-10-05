@@ -26,8 +26,8 @@ class _WideState extends State<Home> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [Textpart(), Imagecon()],
             )
-          : Column(
-              spacing: min(vh, vw * 0.8) * 0.8 * 0.66,
+          : ListView(
+              //spacing: min(vh, vw * 0.8) * 0.8 * 0.66,
               children: [
                 Column(
                   children: [
@@ -87,30 +87,31 @@ class Textpart extends StatelessWidget {
     final data = json.data?["home"]["texts"];
 
     return Container(
+      padding: EdgeInsets.only(
+        top: vh < 500 ? vh * 0.1 + 25 : 0,
+        left: vw * 0.05,
+        right: vw * 0.05,
+      ),
       color: Colors.transparent,
       width: vw > 600 ? vw * 0.5 : vw * 0.8,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: ListView(
+        shrinkWrap: true,
+        //spacing: vh * 0.05,
+        //crossAxisAlignment: CrossAxisAlignment.center,
+        //mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Transform.translate(
-            offset: Offset(0, -vh * 0.3),
-            child: Container(
-              color: Colors.transparent,
-              child: Center(
-                child: Text(data["title"], style: TextStyle(fontSize: 28)),
-              ),
+          Container(
+            color: Colors.transparent,
+            child: Center(
+              child: Text(data["title"], style: TextStyle(fontSize: 28)),
             ),
           ),
-          Transform.translate(
-            offset: Offset(0, -vh * 0.1),
-            child: Container(
-              color: Colors.transparent,
-              alignment: Alignment.topLeft,
-              child: Text(
-                data["description"],
-                style: TextStyle(fontSize: 18.5, height: 1.8),
-              ),
+          Container(
+            color: Colors.transparent,
+            alignment: Alignment.topLeft,
+            child: Text(
+              data["description"],
+              style: TextStyle(fontSize: 18.5, height: 1.8),
             ),
           ),
         ],
